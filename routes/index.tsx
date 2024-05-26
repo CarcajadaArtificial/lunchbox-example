@@ -1,4 +1,4 @@
-import { Card, Header, Linkmap, Main, Text } from '../../components.ts';
+import { Card, Header, Linkmap, Main, Text } from 'lunchbox/components.ts';
 
 export default function Home() {
   return (

@@ -5,8 +5,8 @@ import {
   Main,
   Separator,
   Text,
-} from '../../../components.ts';
-import { ChipSelect } from '../../../islands.ts';
+} from 'lunchbox/components.ts';
+import { ChipSelect } from 'lunchbox/islands.ts';
 
 export default function ChipTest() {
   return (

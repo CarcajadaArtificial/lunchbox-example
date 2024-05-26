@@ -1,1 +1,1 @@
-export * from '../../islands.ts';
+export * from 'lunchbox/islands.ts';
