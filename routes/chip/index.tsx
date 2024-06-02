@@ -4,8 +4,7 @@ import Main from "lunchbox/components/Main/index.tsx";
 import Text from "lunchbox/components/Text/index.tsx";
 import Code from "lunchbox/components/Code/index.tsx";
 import KvAutocomplete from "../../islands/KvAutocomplete.tsx";
-import { dbChip, type modChip } from "@/db.ts";
-import { db } from "$std/media_types/_db.ts";
+import { dbChip } from "@/db.ts";
 
 export default async function ChipTest() {
   const chipListNames = (await dbChip.list()).map((chip) => chip.value.name);
@@ -28,7 +27,7 @@ export default async function ChipTest() {
           <Text type="subheading" noMargins>
             Adding chips to <Code>DenoKv</Code>:
           </Text>
-          <KvAutocomplete<string> initialValues={chipListNames} />
+          <KvAutocomplete initialValues={chipListNames} />
         </>
       </Main>
     </>

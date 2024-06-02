@@ -4,12 +4,13 @@ import Input from "lunchbox/components/Input/index.tsx";
 import Text from "lunchbox/components/Text/index.tsx";
 import { handleKeyboard, Key } from "lunchbox/src/handlers.ts";
 
-export interface iChipAutocomplete {
+export interface iAutocomplete {
   initialValues: string[];
+  onSubmit: (inputValue: string) => void;
 }
 
-export default function (props: iChipAutocomplete) {
-  const { initialValues } = props;
+export default function (props: iAutocomplete) {
+  const { initialValues, onSubmit } = props;
   const [options, setOptions] = useState<string[]>(initialValues);
   const [matchingOptions, setMatchingOptions] = useState<string[]>([]);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
@@ -43,6 +44,7 @@ export default function (props: iChipAutocomplete) {
       except: [],
       cb: (ev) => {
         const inputElement = ev.currentTarget as HTMLInputElement;
+        onSubmit(inputElement.value);
         if (options.includes(inputElement.value)) {
           setOptions([inputElement.value, ...options]);
         }
