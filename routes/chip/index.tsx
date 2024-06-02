@@ -1,14 +1,15 @@
-import Card from "lunchbox/components/Card/index.tsx";
 import Chip from "lunchbox/components/Chip/index.tsx";
 import Header from "lunchbox/components/Header/index.tsx";
 import Main from "lunchbox/components/Main/index.tsx";
-import Separator from "lunchbox/components/Separator/index.tsx";
 import Text from "lunchbox/components/Text/index.tsx";
 import Code from "lunchbox/components/Code/index.tsx";
-import AddChip from "../../islands/AddChip.tsx";
+import KvAutocomplete from "../../islands/KvAutocomplete.tsx";
 import { dbChip, type modChip } from "@/db.ts";
+import { db } from "$std/media_types/_db.ts";
 
-export default function ChipTest() {
+export default async function ChipTest() {
+  const chipListNames = (await dbChip.list()).map((chip) => chip.value.name);
+
   return (
     <>
       <Header layout_type="focus">
@@ -17,9 +18,17 @@ export default function ChipTest() {
       <Main layout_type="focus">
         <>
           <Text type="subheading" noMargins>
-            Adding chips to <Code>DenoKv</Code>
+            List of existing chips:
           </Text>
-          <AddChip<modChip> initialValues={[]} />
+          <div class="flex gap-4 mb-8">
+            {chipListNames.map((chipName) => <Chip content={chipName} />)}
+          </div>
+        </>
+        <>
+          <Text type="subheading" noMargins>
+            Adding chips to <Code>DenoKv</Code>:
+          </Text>
+          <KvAutocomplete<string> initialValues={chipListNames} />
         </>
       </Main>
     </>

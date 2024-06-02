@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.0.4
+
+- Added the `<Autocomplete/>` Island.
+- Removed the database features from the `<AddChip/>` island.
+- Renamed the `<AddChip/>` to `<KvAutocomplete/>`.
+- Added the `lunchbox-body` id to the body element.
+
 ## v0.0.3
 
 - Added a module for managing the database. `/db.ts`
