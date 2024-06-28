@@ -19,7 +19,6 @@ import * as $layout_index from "./routes/layout/index.tsx";
 import * as $markdown_index from "./routes/markdown/index.tsx";
 import * as $panel_panel from "./routes/panel/panel.tsx";
 import * as $text_text from "./routes/text/text.tsx";
-import * as $Autocomplete from "./islands/Autocomplete.tsx";
 import * as $KvAutocomplete from "./islands/KvAutocomplete.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
@@ -44,7 +43,6 @@ const manifest = {
     "./routes/text/text.tsx": $text_text,
   },
   islands: {
-    "./islands/Autocomplete.tsx": $Autocomplete,
     "./islands/KvAutocomplete.tsx": $KvAutocomplete,
   },
   baseUrl: import.meta.url,

@@ -1,53 +1,45 @@
-import { Card, Header, Linkmap, Main, Text } from 'lunchbox/components.ts';
+import {
+  Code,
+  Header,
+  Kbd,
+  Main,
+  Markdown,
+  Panel,
+  Text,
+} from "lunchbox/components.ts";
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
-      <Header layout_type='full'>
-        <span></span>
-        <Text type='title'>Lunchbox 🍱 test site</Text>
+      <Header banner layout_type="full">
+        <div class="text-center">
+          <Text type="title">Lunchbox 🍱 test site</Text>
+          <Text>
+            Press <Kbd>Tab</Kbd> and use the keyboard to move around.
+          </Text>
+        </div>
       </Header>
-      <Main layout_type='thirds'>
-        <Card>
-          <Text type='subheading' noMargins>Atoms</Text>
-          <Linkmap
-            links={[
-              { name: 'Button', url: '/button' },
-              { name: 'Code' },
-              { name: 'Kbd', url: '/kbd' },
-              { name: 'Layout', url: '/layout' },
-              { name: 'Link' },
-              { name: 'Markdown', url: '/markdown' },
-              { name: 'Panel', url: '/panel' },
-              { name: 'Separator' },
-              { name: 'Text', url: '/text' },
-            ]}
+      <Main layout_type="focus">
+        <div>
+          <Text type="heading">Components</Text>
+          <Markdown
+            class="mb-8"
+            markdownContent={await (await fetch(
+              new URL("../content/home_1.md", import.meta.url),
+            )).text()}
           />
-        </Card>
-        <Card>
-          <Text type='subheading' noMargins>Molecules</Text>
-          <Linkmap
-            links={[
-              { name: 'Card', url: '/card' },
-              { name: 'Chip', url: '/chip' },
-              { name: 'Fieldset', url: '/fieldset' },
-              { name: 'Footer', url: '/footer' },
-              { name: 'Header', url: '/header' },
-              { name: 'Input', url: '/input' },
-              { name: 'Linkmap', url: '/linkmap' },
-              { name: 'Main', url: '/main' },
-              { name: 'Navigation', url: '/navigation' },
-              { name: 'Select', url: '/select' },
-              { name: 'TextArea', url: '/textarea' },
-            ]}
+          <Panel>
+            <Text noMargins>
+              This is a panel component.
+            </Text>
+          </Panel>
+          <Markdown
+            class="my-8"
+            markdownContent={await (await fetch(
+              new URL("../content/home_2.md", import.meta.url),
+            )).text()}
           />
-        </Card>
-        <Card>
-          <Text type='subheading' noMargins>Organisms</Text>
-          <Linkmap
-            links={[]}
-          />
-        </Card>
+        </div>
       </Main>
     </>
   );

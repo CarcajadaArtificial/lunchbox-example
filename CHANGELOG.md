@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.0.6
+
+- Added obsidian to gitignore.
+- Removed the Autocomplete island.
+- Updated the home site.
+
 ## v0.0.5
 
 - Added the `onSubmit()` property to the `<Autocomplete/>` Island.
