@@ -7,6 +7,7 @@ import {
   Panel,
   Text,
 } from "lunchbox/components.ts";
+import DemoButton from "@/islands/DemoButton.tsx";
 
 export default async function Home() {
   return (
@@ -39,6 +40,7 @@ export default async function Home() {
               new URL("../content/home_2.md", import.meta.url),
             )).text()}
           />
+          <DemoButton />
         </div>
       </Main>
     </>

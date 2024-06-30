@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.7
+
+- Added the `<DemoButton/>` island.
+- Minor updated in the `<KvAutocomplete/>` island.
+
 ## v0.0.6
 
 - Added obsidian to gitignore.
