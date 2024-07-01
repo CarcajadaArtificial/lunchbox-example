@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.10
+
+- Added `home_4.md`.
+- Added the `<DemoText/>` island.
+
 ## v0.0.9
 
 - Added the `<TextArea/>` component to the `<DemoInput/>` island.
