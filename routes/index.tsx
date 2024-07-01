@@ -9,6 +9,7 @@ import {
 } from "lunchbox/components.ts";
 import DemoButton from "@/islands/DemoButton.tsx";
 import DemoInput from "@/islands/DemoInput.tsx";
+import DemoText from "@/islands/DemoText.tsx";
 
 const mdFetch = async (url: string) =>
   (await fetch(new URL(url, import.meta.url))).text();
@@ -46,6 +47,11 @@ export default async function Home() {
             markdownContent={await mdFetch("../content/home_3.md")}
           />
           <DemoInput />
+          <Markdown
+            class="my-8"
+            markdownContent={await mdFetch("../content/home_4.md")}
+          />
+          <DemoText />
         </div>
       </Main>
     </>

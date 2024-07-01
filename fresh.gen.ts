@@ -21,6 +21,7 @@ import * as $panel_panel from "./routes/panel/panel.tsx";
 import * as $text_text from "./routes/text/text.tsx";
 import * as $DemoButton from "./islands/DemoButton.tsx";
 import * as $DemoInput from "./islands/DemoInput.tsx";
+import * as $DemoText from "./islands/DemoText.tsx";
 import * as $KvAutocomplete from "./islands/KvAutocomplete.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
@@ -47,6 +48,7 @@ const manifest = {
   islands: {
     "./islands/DemoButton.tsx": $DemoButton,
     "./islands/DemoInput.tsx": $DemoInput,
+    "./islands/DemoText.tsx": $DemoText,
     "./islands/KvAutocomplete.tsx": $KvAutocomplete,
   },
   baseUrl: import.meta.url,
