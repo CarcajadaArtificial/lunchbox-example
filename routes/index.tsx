@@ -8,6 +8,10 @@ import {
   Text,
 } from "lunchbox/components.ts";
 import DemoButton from "@/islands/DemoButton.tsx";
+import DemoInput from "@/islands/DemoInput.tsx";
+
+const mdFetch = async (url: string) =>
+  (await fetch(new URL(url, import.meta.url))).text();
 
 export default async function Home() {
   return (
@@ -25,9 +29,7 @@ export default async function Home() {
           <Text type="heading">Components</Text>
           <Markdown
             class="mb-8"
-            markdownContent={await (await fetch(
-              new URL("../content/home_1.md", import.meta.url),
-            )).text()}
+            markdownContent={await mdFetch("../content/home_1.md")}
           />
           <Panel>
             <Text noMargins>
@@ -36,11 +38,14 @@ export default async function Home() {
           </Panel>
           <Markdown
             class="my-8"
-            markdownContent={await (await fetch(
-              new URL("../content/home_2.md", import.meta.url),
-            )).text()}
+            markdownContent={await mdFetch("../content/home_2.md")}
           />
           <DemoButton />
+          <Markdown
+            class="my-8"
+            markdownContent={await mdFetch("../content/home_3.md")}
+          />
+          <DemoInput />
         </div>
       </Main>
     </>

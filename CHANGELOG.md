@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.0.8
+
+- Added `home_3.md`.
+- Added the `<DemoInput/>` island.
+- Minor updates to the `<DemoButton/>` island.
+
 ## v0.0.7
 
 - Added the `<DemoButton/>` island.
