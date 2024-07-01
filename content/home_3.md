@@ -1,2 +1,2 @@
-- The `<Input/>` component and it's variations and visual relation with a parent
-  `<Panel/>`.
+- The `<Input/>` and `<TextArea/>` components and their variations and visual
+  relations with a parent `<Panel/>`.

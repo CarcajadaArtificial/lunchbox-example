@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.9
+
+- Added the `<TextArea/>` component to the `<DemoInput/>` island.
+
 ## v0.0.8
 
 - Added `home_3.md`.
