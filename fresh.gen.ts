@@ -14,6 +14,7 @@ import * as $DemoButton from "./islands/DemoButton.tsx";
 import * as $DemoInput from "./islands/DemoInput.tsx";
 import * as $DemoText from "./islands/DemoText.tsx";
 import * as $KvAutocomplete from "./islands/KvAutocomplete.tsx";
+import * as $Sidebar from "./islands/Sidebar.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -32,6 +33,7 @@ const manifest = {
     "./islands/DemoInput.tsx": $DemoInput,
     "./islands/DemoText.tsx": $DemoText,
     "./islands/KvAutocomplete.tsx": $KvAutocomplete,
+    "./islands/Sidebar.tsx": $Sidebar,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

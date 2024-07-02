@@ -10,6 +10,7 @@ import {
 import DemoButton from "@/islands/DemoButton.tsx";
 import DemoInput from "@/islands/DemoInput.tsx";
 import DemoText from "@/islands/DemoText.tsx";
+import Sidebar from "@/islands/Sidebar.tsx";
 
 const mdFetch = async (url: string) =>
   (await fetch(new URL(url, import.meta.url))).text();
@@ -25,9 +26,19 @@ export default async function Home() {
           </Text>
         </div>
       </Header>
-      <Main layout_type="focus">
+      <Main layout_type="right" fwd={{ layout: { whitespaceMode: true } }}>
         <div>
-          <Text type="heading">Components</Text>
+          <Sidebar
+            links={[
+              { name: "Page Components" },
+              { name: "Panel" },
+              { name: "Button" },
+              { name: "Input" },
+              { name: "Text" },
+            ]}
+          />
+        </div>
+        <div>
           <Markdown
             class="mb-8"
             markdownContent={await mdFetch("../content/home_1.md")}
