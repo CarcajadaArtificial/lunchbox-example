@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.12
+
+- Updated the markdown content.
+- Added the `<Sidebar/>` island.
+
 ## v0.0.11
 
 - Removed deprecated routes.
