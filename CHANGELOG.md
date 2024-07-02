@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.11
+
+- Removed deprecated routes.
+
 ## v0.0.10
 
 - Added `home_4.md`.
