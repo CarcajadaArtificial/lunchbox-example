@@ -20,24 +20,23 @@ export default async function Home() {
     <>
       <Header banner layout_type="full">
         <div class="text-center">
-          <Text type="title">Lunchbox 🍱 test site</Text>
+          <Text type="display">Lunchbox 🍱 test site</Text>
           <Text>
             Press <Kbd>Tab</Kbd> and use the keyboard to move around.
           </Text>
         </div>
       </Header>
       <Main layout_type="right" fwd={{ layout: { whitespaceMode: true } }}>
-        <div>
-          <Sidebar
-            links={[
-              { name: "Page Components" },
-              { name: "Panel" },
-              { name: "Button" },
-              { name: "Input" },
-              { name: "Text" },
-            ]}
-          />
-        </div>
+        <Sidebar
+          fwd={{ container: { class: "mt-20" } }}
+          links={[
+            { name: "Page Components", url: "#page-components" },
+            { name: "Panel", url: "#panel" },
+            { name: "Button", url: "#button" },
+            { name: "Input", url: "#input" },
+            { name: "Text", url: "#text" },
+          ]}
+        />
         <div>
           <Markdown
             class="mb-8"

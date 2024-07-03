@@ -1,3 +1,4 @@
+## Text
 Now, let's talk about the core text elements that bring clarity and functionality to our pages: the `<Text/>`, `<Code/>`, `<Kbd/>`, `<Time/>`, and `<Link/>` components.
 
 The `<Text/>` component is your standard bearer, delivering clean, readable text for any content, `<Code/>` highlights snippets of code with precision, making it clear and distinct, and `<Kbd/>` showcases keyboard inputs, giving them a polished, distinct appearance.

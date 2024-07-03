@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.13
+
+- Updated the markdown content.
+- Minor updates to the sidebar.
+
 ## v0.0.12
 
 - Updated the markdown content.
