@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.14
+
+- Added the `<Select/>` component to the `<DemoInput/>` island.
+
 ## v0.0.13
 
 - Updated the markdown content.
