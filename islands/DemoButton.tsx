@@ -37,7 +37,7 @@ export default function () {
           selectedValues={[buttonType]}
           fwd={{
             input: {
-              onchange: (ev) =>
+              onchange: (ev: Event) =>
                 setButtonType(
                   (ev.target as HTMLInputElement)
                     .dataset["label"] as ButtonTypes,
@@ -52,7 +52,7 @@ export default function () {
           selectedValues={[buttonPadding]}
           fwd={{
             input: {
-              onchange: (ev) =>
+              onchange: (ev: Event) =>
                 setButtonPadding(
                   (ev.target as HTMLInputElement)
                     .dataset["label"] as ButtonPaddings,
@@ -63,7 +63,7 @@ export default function () {
         <Input
           label="Button value"
           value={buttonContent}
-          onkeyup={(ev) =>
+          onkeyup={(ev: Event) =>
             setButtonContent((ev.target as HTMLInputElement).value)}
         />
       </div>

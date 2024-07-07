@@ -76,17 +76,19 @@ export default function () {
         <Input
           label="Input label"
           value={inputLabel}
-          onkeyup={(ev) => setInputLabel((ev.target as HTMLInputElement).value)}
+          onkeyup={(ev: Event) =>
+            setInputLabel((ev.target as HTMLInputElement).value)}
         />
         <Input
           label="Input error"
           value={inputError}
-          onkeyup={(ev) => setInputError((ev.target as HTMLInputElement).value)}
+          onkeyup={(ev: Event) =>
+            setInputError((ev.target as HTMLInputElement).value)}
         />
         <Input
           label="Input placeholder"
           value={inputPlaceholder}
-          onkeyup={(ev) =>
+          onkeyup={(ev: Event) =>
             setInputPlaceholder((ev.target as HTMLInputElement).value)}
         />
         <Fieldset
@@ -183,7 +185,7 @@ export default function () {
             <TextArea
               label="options"
               value={selectOptions}
-              onkeyup={(ev) =>
+              onkeyup={(ev: Event) =>
                 setSelectOptions((ev.target as HTMLInputElement).value)}
             />
           )

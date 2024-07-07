@@ -10,6 +10,7 @@ import {
 import DemoButton from "@/islands/DemoButton.tsx";
 import DemoInput from "@/islands/DemoInput.tsx";
 import DemoText from "@/islands/DemoText.tsx";
+import DemoPattern from "@/islands/DemoPattern.tsx";
 import Sidebar from "@/islands/Sidebar.tsx";
 
 const mdFetch = async (url: string) =>
@@ -35,6 +36,7 @@ export default async function Home() {
             { name: "Button", url: "#button" },
             { name: "Input", url: "#input" },
             { name: "Text", url: "#text" },
+            { name: "Pattern", url: "#pattern" },
           ]}
         />
         <div>
@@ -62,6 +64,11 @@ export default async function Home() {
             markdownContent={await mdFetch("../content/home_4.md")}
           />
           <DemoText />
+          <Markdown
+            class="my-8"
+            markdownContent={await mdFetch("../content/home_5.md")}
+          />
+          <DemoPattern />
         </div>
       </Main>
     </>
