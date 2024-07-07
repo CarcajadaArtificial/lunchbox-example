@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.15
+
+- Added a prose section and the `<Separator/>` component to the `<DemoInput/>`
+  island.
+
 ## v0.0.14
 
 - Added the `<Select/>` component to the `<DemoInput/>` island.
