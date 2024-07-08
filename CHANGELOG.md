@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.17
+
+- Added the `<Fieldset/>` component to the `<DemoInput/>` island.
+- Added the flip property to the `<DemoPattern/>` island.
+
 ## v0.0.16
 
 - Added the `<DemoPattern/>` island.

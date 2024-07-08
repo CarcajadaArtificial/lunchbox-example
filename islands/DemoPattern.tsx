@@ -4,6 +4,7 @@ import { PATTERN_TYPES, PatternTypes } from "lunchbox/src/enums.ts";
 
 export default function () {
   const [onPanel, setPanel] = useState<boolean>(false);
+  const [isFlipped, setFlipped] = useState<boolean>(false);
   const [patternType, setPatternType] = useState<PatternTypes>("cloud");
 
   return (
@@ -15,6 +16,12 @@ export default function () {
           label="On a panel"
           checked={onPanel}
           onChange={() => setPanel(!onPanel)}
+        />
+        <Input
+          type="checkbox"
+          label="Flipped"
+          checked={isFlipped}
+          onChange={() => setFlipped(!isFlipped)}
         />
         <Fieldset
           name="pattern_types"
@@ -33,12 +40,19 @@ export default function () {
         />
       </div>
       <div class="w-full">
+        <Pattern flip hidden={!isFlipped} type={patternType} />
         <Panel
-          class="block rounded-t h-36"
+          class={`block rounded-${isFlipped ? "b" : "t"}-lg h-36`}
           nostyle={!onPanel}
+          style={{
+            borderTopLeftRadius: isFlipped ? "0" : "var(--s-quarter)",
+            borderTopRightRadius: isFlipped ? "0" : "var(--s-quarter)",
+            borderBottomLeftRadius: !isFlipped ? "0" : "var(--s-quarter)",
+            borderBottomRightRadius: !isFlipped ? "0" : "var(--s-quarter)",
+          }}
         >
         </Panel>
-        <Pattern type={patternType} />
+        <Pattern hidden={isFlipped} type={patternType} />
       </div>
     </div>
   );

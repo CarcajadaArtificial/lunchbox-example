@@ -50,9 +50,14 @@ export default function () {
   ] = useState<string>("Placeholder");
 
   const [
-    selectOptions,
-    setSelectOptions,
+    options,
+    setOptions,
   ] = useState<string>("Option 1, Option 2, Option 3");
+
+  const [
+    allowMultiple,
+    setAllowMultiple,
+  ] = useState<boolean>(false);
 
   const onChangeInputType = (ev: Event) =>
     setInputType((ev.target as HTMLInputElement).dataset["label"]!);
@@ -99,6 +104,7 @@ export default function () {
             "input",
             "textarea",
             "select",
+            "fieldset",
           ]}
           fwd={{
             input: {
@@ -183,11 +189,28 @@ export default function () {
           : inputElement === "select"
           ? (
             <TextArea
-              label="options"
-              value={selectOptions}
+              label="Options"
+              value={options}
               onkeyup={(ev: Event) =>
-                setSelectOptions((ev.target as HTMLInputElement).value)}
+                setOptions((ev.target as HTMLInputElement).value)}
             />
+          )
+          : inputElement === "fieldset"
+          ? (
+            <>
+              <TextArea
+                label="Options"
+                value={options}
+                onkeyup={(ev: Event) =>
+                  setOptions((ev.target as HTMLInputElement).value)}
+              />
+              <Input
+                type="checkbox"
+                label="Allow Multiple"
+                checked={allowMultiple}
+                onChange={() => setAllowMultiple(!allowMultiple)}
+              />
+            </>
           )
           : null}
       </div>
@@ -221,7 +244,16 @@ export default function () {
               error={inputError}
               maxWidth={maxWidth}
               placeholder={inputPlaceholder}
-              options={selectOptions.split(",")}
+              options={options.split(",")}
+            />
+          )
+          : inputElement === "fieldset"
+          ? (
+            <Fieldset
+              legend={inputLabel}
+              values={options.split(",")}
+              maxWidth={maxWidth}
+              allowMultiple={allowMultiple}
             />
           )
           : null}
