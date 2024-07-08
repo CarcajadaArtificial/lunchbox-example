@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.18
+
+- Added the `<DemoLinkmap/>` island.
+- Removed the deprecated `/demo` route.
+
 ## v0.0.17
 
 - Added the `<Fieldset/>` component to the `<DemoInput/>` island.

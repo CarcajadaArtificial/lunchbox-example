@@ -8,10 +8,10 @@ import * as $api_chips_add from "./routes/api/chips/add.ts";
 import * as $api_chips_edit from "./routes/api/chips/edit.ts";
 import * as $api_chips_get from "./routes/api/chips/get.ts";
 import * as $api_chips_list from "./routes/api/chips/list.ts";
-import * as $demo from "./routes/demo.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $DemoButton from "./islands/DemoButton.tsx";
 import * as $DemoInput from "./islands/DemoInput.tsx";
+import * as $DemoLinkmap from "./islands/DemoLinkmap.tsx";
 import * as $DemoPattern from "./islands/DemoPattern.tsx";
 import * as $DemoText from "./islands/DemoText.tsx";
 import * as $KvAutocomplete from "./islands/KvAutocomplete.tsx";
@@ -26,12 +26,12 @@ const manifest = {
     "./routes/api/chips/edit.ts": $api_chips_edit,
     "./routes/api/chips/get.ts": $api_chips_get,
     "./routes/api/chips/list.ts": $api_chips_list,
-    "./routes/demo.tsx": $demo,
     "./routes/index.tsx": $index,
   },
   islands: {
     "./islands/DemoButton.tsx": $DemoButton,
     "./islands/DemoInput.tsx": $DemoInput,
+    "./islands/DemoLinkmap.tsx": $DemoLinkmap,
     "./islands/DemoPattern.tsx": $DemoPattern,
     "./islands/DemoText.tsx": $DemoText,
     "./islands/KvAutocomplete.tsx": $KvAutocomplete,

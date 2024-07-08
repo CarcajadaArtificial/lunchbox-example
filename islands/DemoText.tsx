@@ -77,8 +77,6 @@ export default function () {
     setBuffer,
   ] = useState<boolean>(false);
 
-  console.log(isProse);
-
   return (
     <div class="flex">
       <div class="w-56 mr-4 flex flex-col gap-4">
