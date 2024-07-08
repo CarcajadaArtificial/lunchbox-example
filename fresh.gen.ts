@@ -12,6 +12,7 @@ import * as $index from "./routes/index.tsx";
 import * as $DemoButton from "./islands/DemoButton.tsx";
 import * as $DemoInput from "./islands/DemoInput.tsx";
 import * as $DemoLinkmap from "./islands/DemoLinkmap.tsx";
+import * as $DemoLoader from "./islands/DemoLoader.tsx";
 import * as $DemoPattern from "./islands/DemoPattern.tsx";
 import * as $DemoText from "./islands/DemoText.tsx";
 import * as $KvAutocomplete from "./islands/KvAutocomplete.tsx";
@@ -32,6 +33,7 @@ const manifest = {
     "./islands/DemoButton.tsx": $DemoButton,
     "./islands/DemoInput.tsx": $DemoInput,
     "./islands/DemoLinkmap.tsx": $DemoLinkmap,
+    "./islands/DemoLoader.tsx": $DemoLoader,
     "./islands/DemoPattern.tsx": $DemoPattern,
     "./islands/DemoText.tsx": $DemoText,
     "./islands/KvAutocomplete.tsx": $KvAutocomplete,

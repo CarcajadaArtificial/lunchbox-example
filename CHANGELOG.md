@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.19
+
+- Added the empty `<DemoLoader/>` island.
+
 ## v0.0.18
 
 - Added the `<DemoLinkmap/>` island.
