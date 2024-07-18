@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.20
+
+- Added the empty `<DemoFooter/>`, `<DemoMain/>`, and `<DemoHeader/>` islands.
+- Added the empty `/page` route.
+
 ## v0.0.19
 
 - Added the empty `<DemoLoader/>` island.
