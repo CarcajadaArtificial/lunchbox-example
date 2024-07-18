@@ -1,5 +1,4 @@
 import {
-  Code,
   Header,
   Kbd,
   Main,
@@ -21,7 +20,7 @@ const mdFetch = async (url: string) =>
 export default async function Home() {
   return (
     <>
-      <Header banner layout_type="full">
+      <Header banner>
         <div class="text-center">
           <Text type="display">Lunchbox 🍱 test site</Text>
           <Text>
@@ -29,7 +28,7 @@ export default async function Home() {
           </Text>
         </div>
       </Header>
-      <Main layout_type="right" fwd={{ layout: { whitespaceMode: true } }}>
+      <Main layout="right" fwd={{ layout: { whitespaceMode: true } }}>
         <Sidebar
           fwd={{ container: { class: "mt-20" } }}
           links={[

@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.21
+
+- Added functionality to the `<DemoFooter/>`, `<DemoMain/>`, and `<DemoHeader/>`
+  islands.
+
 ## v0.0.20
 
 - Added the empty `<DemoFooter/>`, `<DemoMain/>`, and `<DemoHeader/>` islands.
