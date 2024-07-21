@@ -1,9 +1,10 @@
 import { useState } from "preact/hooks";
-import { Fieldset, Layout, Main, Text } from "lunchbox/components.ts";
+import { Fieldset, Input, Layout, Main, Text } from "lunchbox/components.ts";
 import { LAYOUT_TYPES, type LayoutTypes } from "lunchbox/src/enums.ts";
 
 export default function () {
   const [layoutType, setLayoutType] = useState<LayoutTypes>("right");
+  const [whitespaceMode, setWhitespaceMode] = useState<boolean>(true);
 
   const layoutModulesArray = new Array(12).fill(0);
 
@@ -14,6 +15,12 @@ export default function () {
           <Layout>
             <div class="w-56 mr-4 flex flex-col gap-4">
               <Text type="subheading" noMargins>Configure</Text>
+              <Input
+                type="checkbox"
+                label="Whitespace Mode"
+                checked={whitespaceMode}
+                onChange={() => setWhitespaceMode(!whitespaceMode)}
+              />
               <Fieldset
                 name="main_layout_types"
                 legend="Layout Type"
@@ -34,7 +41,7 @@ export default function () {
             </div>
           </Layout>
         </div>
-        <Layout type={layoutType}>
+        <Layout type={layoutType} whitespaceMode={whitespaceMode}>
           {layoutModulesArray.map(() => (
             <div
               class="w-full p-8 mb-4 rounded"

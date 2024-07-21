@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.0.23
+
+- Updated the documentation content.
+- Added minor updates to the `<DemoMain/>` component.
+- Added the `<DemoMarkdown/>` component.
+
 ## v0.0.22
 
 - Added minor updates to the `<DemoPattern/>`, `<DemoFooter/>`, `<DemoMain/>`,
