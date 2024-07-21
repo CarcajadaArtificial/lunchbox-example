@@ -3,7 +3,7 @@ import { Fieldset, Input, Panel, Pattern, Text } from "lunchbox/components.ts";
 import { PATTERN_TYPES, PatternTypes } from "lunchbox/src/enums.ts";
 
 export default function () {
-  const [onPanel, setPanel] = useState<boolean>(false);
+  const [onPanel, setPanel] = useState<boolean>(true);
   const [isFlipped, setFlipped] = useState<boolean>(false);
   const [patternType, setPatternType] = useState<PatternTypes>("cloud");
 

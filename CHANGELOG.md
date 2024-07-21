@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.22
+
+- Added minor updates to the `<DemoPattern/>`, `<DemoFooter/>`, `<DemoMain/>`,
+  and `<DemoHeader/>`
+
 ## v0.0.21
 
 - Added functionality to the `<DemoFooter/>`, `<DemoMain/>`, and `<DemoHeader/>`
