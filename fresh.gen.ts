@@ -14,9 +14,9 @@ import * as $DemoButton from "./islands/DemoButton.tsx";
 import * as $DemoFooter from "./islands/DemoFooter.tsx";
 import * as $DemoHeader from "./islands/DemoHeader.tsx";
 import * as $DemoInput from "./islands/DemoInput.tsx";
+import * as $DemoLayout from "./islands/DemoLayout.tsx";
 import * as $DemoLinkmap from "./islands/DemoLinkmap.tsx";
 import * as $DemoLoader from "./islands/DemoLoader.tsx";
-import * as $DemoMain from "./islands/DemoMain.tsx";
 import * as $DemoMarkdown from "./islands/DemoMarkdown.tsx";
 import * as $DemoPattern from "./islands/DemoPattern.tsx";
 import * as $DemoText from "./islands/DemoText.tsx";
@@ -40,9 +40,9 @@ const manifest = {
     "./islands/DemoFooter.tsx": $DemoFooter,
     "./islands/DemoHeader.tsx": $DemoHeader,
     "./islands/DemoInput.tsx": $DemoInput,
+    "./islands/DemoLayout.tsx": $DemoLayout,
     "./islands/DemoLinkmap.tsx": $DemoLinkmap,
     "./islands/DemoLoader.tsx": $DemoLoader,
-    "./islands/DemoMain.tsx": $DemoMain,
     "./islands/DemoMarkdown.tsx": $DemoMarkdown,
     "./islands/DemoPattern.tsx": $DemoPattern,
     "./islands/DemoText.tsx": $DemoText,

@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.24
+
+- Added more features to the `<DemoMarkdown/>` component.
+
 ## v0.0.23
 
 - Updated the documentation content.
