@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.25
+
+- Updated the `<DemoLoader/>` island.
+- Added Loader documentation.
+
 ## v0.0.24
 
 - Added more features to the `<DemoMarkdown/>` component.
