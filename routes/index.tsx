@@ -12,6 +12,7 @@ import DemoText from "@/islands/DemoText.tsx";
 import DemoPattern from "@/islands/DemoPattern.tsx";
 import DemoLinkmap from "@/islands/DemoLinkmap.tsx";
 import DemoLoader from "@/islands/DemoLoader.tsx";
+import DemoCard from "@/islands/DemoCard.tsx";
 import Sidebar from "@/islands/Sidebar.tsx";
 
 const mdFetch = async (url: string) =>
@@ -32,14 +33,21 @@ export default async function Home() {
         <Sidebar
           fwd={{ container: { class: "mt-20" } }}
           links={[
-            { name: "Page Components", url: "#page-components" },
-            { name: "Panel", url: "#panel" },
-            { name: "Button", url: "#button" },
-            { name: "Input", url: "#input" },
-            { name: "Text", url: "#text" },
-            { name: "Pattern", url: "#pattern" },
-            { name: "Linkmap", url: "#linkmap" },
-            { name: "Loader", url: "#loader" },
+            {
+              name: "Components",
+              children: [
+                { name: "Page Components", url: "#page-components" },
+                { name: "Panel", url: "#panel" },
+                { name: "Button", url: "#button" },
+                { name: "Input", url: "#input" },
+                { name: "Text", url: "#text" },
+                { name: "Pattern", url: "#pattern" },
+                { name: "Linkmap", url: "#linkmap" },
+                { name: "Loader", url: "#loader" },
+                { name: "Card", url: "#Card" },
+              ],
+            },
+            { name: "Islands" },
           ]}
         />
         <div>
@@ -82,6 +90,11 @@ export default async function Home() {
             markdownContent={await mdFetch("../content/home_7.md")}
           />
           <DemoLoader />
+          <Markdown
+            class="my-8"
+            markdownContent={await mdFetch("../content/home_8.md")}
+          />
+          <DemoCard />
         </div>
       </Main>
     </>

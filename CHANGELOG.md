@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.26
+
+- Added the `<DemoCard/>` island.
+
 ## v0.0.25
 
 - Updated the `<DemoLoader/>` island.

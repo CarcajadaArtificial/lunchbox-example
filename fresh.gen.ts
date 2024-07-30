@@ -11,6 +11,7 @@ import * as $api_chips_list from "./routes/api/chips/list.ts";
 import * as $index from "./routes/index.tsx";
 import * as $page from "./routes/page.tsx";
 import * as $DemoButton from "./islands/DemoButton.tsx";
+import * as $DemoCard from "./islands/DemoCard.tsx";
 import * as $DemoFooter from "./islands/DemoFooter.tsx";
 import * as $DemoHeader from "./islands/DemoHeader.tsx";
 import * as $DemoInput from "./islands/DemoInput.tsx";
@@ -37,6 +38,7 @@ const manifest = {
   },
   islands: {
     "./islands/DemoButton.tsx": $DemoButton,
+    "./islands/DemoCard.tsx": $DemoCard,
     "./islands/DemoFooter.tsx": $DemoFooter,
     "./islands/DemoHeader.tsx": $DemoHeader,
     "./islands/DemoInput.tsx": $DemoInput,
