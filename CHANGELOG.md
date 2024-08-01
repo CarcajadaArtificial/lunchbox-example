@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.27
+
+- Added the `<DemoNavigation/>` island.
+
 ## v0.0.26
 
 - Added the `<DemoCard/>` island.

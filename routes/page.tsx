@@ -2,6 +2,7 @@ import { Main } from "lunchbox/components.ts";
 import DemoHeader from "@/islands/DemoHeader.tsx";
 import DemoLayout from "../islands/DemoLayout.tsx";
 import DemoFooter from "@/islands/DemoFooter.tsx";
+import DemoNavigation from "@/islands/DemoNavigation.tsx";
 import DemoMarkdown from "@/islands/DemoMarkdown.tsx";
 
 const mdFetch = async (url: string) =>
@@ -11,6 +12,7 @@ export default async function Page() {
   return (
     <>
       <DemoHeader />
+      <DemoNavigation />
       <Main>
         <DemoLayout />
         <DemoMarkdown

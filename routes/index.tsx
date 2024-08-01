@@ -13,6 +13,7 @@ import DemoPattern from "@/islands/DemoPattern.tsx";
 import DemoLinkmap from "@/islands/DemoLinkmap.tsx";
 import DemoLoader from "@/islands/DemoLoader.tsx";
 import DemoCard from "@/islands/DemoCard.tsx";
+import DemoNavigation from "@/islands/DemoNavigation.tsx";
 import Sidebar from "@/islands/Sidebar.tsx";
 
 const mdFetch = async (url: string) =>
@@ -29,6 +30,7 @@ export default async function Home() {
           </Text>
         </div>
       </Header>
+      <DemoNavigation />
       <Main layout="right" fwd={{ layout: { whitespaceMode: true } }}>
         <Sidebar
           fwd={{ container: { class: "mt-20" } }}
