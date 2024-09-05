@@ -1,13 +1,16 @@
-import { Layout, Link, Navigation, Text } from "lunchbox/components.ts";
+import { Layout, Link, Module, Navigation } from "lunchbox/components.ts";
 
 export default function () {
   return (
     <Navigation>
-      <Layout whitespaceMode type="right">
-        <Link href="/">Home</Link>
-        <div>
+      <Layout whitespace>
+        <Module size="sm">
+          <Link href="/">Home</Link>
+        </Module>
+        <Module size="lg" class="flex gap-4">
           <Link href="/page">Page Components</Link>
-        </div>
+          <Link href="/test">Test</Link>
+        </Module>
       </Layout>
     </Navigation>
   );

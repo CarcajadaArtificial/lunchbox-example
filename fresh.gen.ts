@@ -10,6 +10,7 @@ import * as $api_chips_get from "./routes/api/chips/get.ts";
 import * as $api_chips_list from "./routes/api/chips/list.ts";
 import * as $index from "./routes/index.tsx";
 import * as $page from "./routes/page.tsx";
+import * as $test from "./routes/test.tsx";
 import * as $DemoButton from "./islands/DemoButton.tsx";
 import * as $DemoCard from "./islands/DemoCard.tsx";
 import * as $DemoFooter from "./islands/DemoFooter.tsx";
@@ -19,11 +20,11 @@ import * as $DemoLayout from "./islands/DemoLayout.tsx";
 import * as $DemoLinkmap from "./islands/DemoLinkmap.tsx";
 import * as $DemoLoader from "./islands/DemoLoader.tsx";
 import * as $DemoMarkdown from "./islands/DemoMarkdown.tsx";
+import * as $DemoMenu from "./islands/DemoMenu.tsx";
 import * as $DemoNavigation from "./islands/DemoNavigation.tsx";
 import * as $DemoPattern from "./islands/DemoPattern.tsx";
 import * as $DemoText from "./islands/DemoText.tsx";
 import * as $KvAutocomplete from "./islands/KvAutocomplete.tsx";
-import * as $Sidebar from "./islands/Sidebar.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -36,6 +37,7 @@ const manifest = {
     "./routes/api/chips/list.ts": $api_chips_list,
     "./routes/index.tsx": $index,
     "./routes/page.tsx": $page,
+    "./routes/test.tsx": $test,
   },
   islands: {
     "./islands/DemoButton.tsx": $DemoButton,
@@ -47,11 +49,11 @@ const manifest = {
     "./islands/DemoLinkmap.tsx": $DemoLinkmap,
     "./islands/DemoLoader.tsx": $DemoLoader,
     "./islands/DemoMarkdown.tsx": $DemoMarkdown,
+    "./islands/DemoMenu.tsx": $DemoMenu,
     "./islands/DemoNavigation.tsx": $DemoNavigation,
     "./islands/DemoPattern.tsx": $DemoPattern,
     "./islands/DemoText.tsx": $DemoText,
     "./islands/KvAutocomplete.tsx": $KvAutocomplete,
-    "./islands/Sidebar.tsx": $Sidebar,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

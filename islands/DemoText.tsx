@@ -7,7 +7,6 @@ import {
   Panel,
   Separator,
   Text,
-  Time,
 } from "lunchbox/components.ts";
 import { TEXT_TYPES } from "lunchbox/src/enums.ts";
 
@@ -36,21 +35,6 @@ export default function () {
     textCode,
     setTextCode,
   ] = useState<string>("Code");
-
-  const [
-    hasTime,
-    setTime,
-  ] = useState<boolean>(false);
-
-  const [
-    textTime,
-    setTextTime,
-  ] = useState<string>(new Date().toISOString());
-
-  const [
-    textTimeFormat,
-    setTextTimeFormat,
-  ] = useState<string>("www, d MMM YYYY - h:mm a");
 
   const [
     hasKbd,
@@ -113,26 +97,6 @@ export default function () {
                 value={textCode}
                 onkeyup={(ev: Event) =>
                   setTextCode((ev.target as HTMLInputElement).value)}
-              />
-            </div>
-            <Input
-              type="checkbox"
-              label="Show Time"
-              checked={hasTime}
-              onChange={() => setTime(!hasTime)}
-            />
-            <div hidden={!hasTime}>
-              <Input
-                label="Time text"
-                type="datetime-local"
-                onchange={(ev: Event) =>
-                  setTextTime((ev.target as HTMLInputElement).value)}
-              />
-              <Input
-                label="Time format"
-                value={textTimeFormat}
-                onkeyup={(ev: Event) =>
-                  setTextTimeFormat((ev.target as HTMLInputElement).value)}
               />
             </div>
             <Input
@@ -211,9 +175,8 @@ export default function () {
           )
           : TEXT_TYPES.map((TEXT_TYPE, index) => (
             <Text type={TEXT_TYPE}>
-              {baseText} {hasCode ? <Code>{textCode}</Code> : ""} {hasTime
-                ? <Time format={textTimeFormat} timestamp={textTime} />
-                : ""} {hasKbd ? <Kbd>{textKbd}</Kbd> : ""}{" "}
+              {baseText} {hasCode ? <Code>{textCode}</Code> : ""}{" "}
+              {hasKbd ? <Kbd>{textKbd}</Kbd> : ""}{" "}
               {hasLink ? <Link>{textLink}</Link> : ""} {showBuffer
                 ? (
                   <>

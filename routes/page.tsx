@@ -1,4 +1,4 @@
-import { Main } from "lunchbox/components.ts";
+import { Layout, Main } from "lunchbox/components.ts";
 import DemoHeader from "@/islands/DemoHeader.tsx";
 import DemoLayout from "../islands/DemoLayout.tsx";
 import DemoFooter from "@/islands/DemoFooter.tsx";

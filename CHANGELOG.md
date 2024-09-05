@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.0.28
+
+- Updated various islands to support updated lunchbox components.
+- Upated the `/page` and `/` routes to support updated lunchbox components.
+- Added the `/test` route for single isolated component testing.
+- Updated Fresh.
+- Removed the Sidebar island.
+
 ## v0.0.27
 
 - Added the `<DemoNavigation/>` island.
