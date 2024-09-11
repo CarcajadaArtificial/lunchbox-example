@@ -13,62 +13,18 @@ import {
   ButtonPaddings,
   ButtonTypes,
 } from "lunchbox/src/enums.ts";
+import Menu from "./Menu.tsx";
 
 export default function () {
-  const [onPanel, setPanel] = useState<boolean>(false);
+  const [onPanel, setPanel] = useState<boolean>(true);
   const [buttonContent, setButtonContent] = useState<string>("Example Button");
   const [buttonType, setButtonType] = useState<ButtonTypes>("default");
   const [buttonPadding, setButtonPadding] = useState<ButtonPaddings>("default");
 
   return (
-    <div class="flex">
-      <div class="w-56 mr-4 flex flex-col gap-4">
-        <Text type="subheading" noMargins>Configure</Text>
-        <Input
-          type="checkbox"
-          label="On a panel"
-          checked={onPanel}
-          onChange={() => setPanel(!onPanel)}
-        />
-        <Fieldset
-          name="button_types"
-          legend="Button Type"
-          values={["default", ...BUTTON_TYPES]}
-          selectedValues={[buttonType]}
-          fwd={{
-            input: {
-              onchange: (ev: Event) =>
-                setButtonType(
-                  (ev.target as HTMLInputElement)
-                    .dataset["label"] as ButtonTypes,
-                ),
-            },
-          }}
-        />
-        <Fieldset
-          name="button_paddings"
-          legend="Button Padding"
-          values={["default", ...BUTTON_PADDINGS]}
-          selectedValues={[buttonPadding]}
-          fwd={{
-            input: {
-              onchange: (ev: Event) =>
-                setButtonPadding(
-                  (ev.target as HTMLInputElement)
-                    .dataset["label"] as ButtonPaddings,
-                ),
-            },
-          }}
-        />
-        <Input
-          label="Button value"
-          value={buttonContent}
-          onkeyup={(ev: Event) =>
-            setButtonContent((ev.target as HTMLInputElement).value)}
-        />
-      </div>
+    <div class="flex flex-col gap-4">
       <Panel
-        class="flex-1 flex flex-col items-center justify-center rounded gap-4 p-4"
+        class="p-4 h-36 flex flex-col justify-center items-center w-full"
         nostyle={!onPanel}
       >
         <Button tabindex={0} type={buttonType} padding={buttonPadding}>
@@ -78,6 +34,56 @@ export default function () {
           Press <Kbd>space</Kbd> key to ativate
         </Text>
       </Panel>
+      <Menu button="Configuration" hardToggle>
+        <div class="p-2 flex flex-col gap-2">
+          <Input
+            type="checkbox"
+            label="On a panel"
+            checked={onPanel}
+            onChange={() => setPanel(!onPanel)}
+          />
+          <Fieldset legend="Button Type">
+            {["default", ...BUTTON_TYPES].map((buttonType) => (
+              <Input
+                type="radio"
+                label={buttonType}
+                value={buttonType}
+                name="button_types"
+                selected={buttonType === "default"}
+                data-label={buttonType}
+                onchange={(ev: Event) =>
+                  setButtonType(
+                    (ev.target as HTMLInputElement)
+                      .dataset["label"] as ButtonTypes,
+                  )}
+              />
+            ))}
+          </Fieldset>
+          <Fieldset legend="Button Paddings">
+            {["default", ...BUTTON_PADDINGS].map((buttonPadding) => (
+              <Input
+                type="radio"
+                label={buttonPadding}
+                value={buttonPadding}
+                name="button_paddings"
+                selected={buttonPadding === "default"}
+                data-label={buttonPadding}
+                onchange={(ev: Event) =>
+                  setButtonPadding(
+                    (ev.target as HTMLInputElement)
+                      .dataset["label"] as ButtonPaddings,
+                  )}
+              />
+            ))}
+          </Fieldset>
+          <Input
+            label="Button value"
+            value={buttonContent}
+            onkeyup={(ev: Event) =>
+              setButtonContent((ev.target as HTMLInputElement).value)}
+          />
+        </div>
+      </Menu>
     </div>
   );
 }

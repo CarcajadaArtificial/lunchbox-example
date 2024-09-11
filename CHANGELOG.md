@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.29
+
+- Updated the `<DemoButton/>`, and the `<DemoMenu/>` island.
+- Added the `<Menu/>` island.
+
 ## v0.0.28
 
 - Updated various islands to support updated lunchbox components.

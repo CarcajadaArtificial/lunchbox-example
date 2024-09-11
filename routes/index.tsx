@@ -53,7 +53,6 @@ export default async function Home() {
             </Sidebar>
           </Module>
           <Module size="lg">
-            <DemoMenu />
             <Markdown
               class="mb-8"
               markdownContent={await mdFetch("../content/home_1.md")}
