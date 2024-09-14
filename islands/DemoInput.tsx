@@ -12,7 +12,7 @@ export default function () {
   const [
     onPanel,
     setPanel,
-  ] = useState<boolean>(false);
+  ] = useState<boolean>(true);
 
   const [
     maxWidth,

@@ -1,4 +1,4 @@
-import { useState } from "preact/hooks";
+import { useReducer } from "preact/hooks";
 import {
   Code,
   Input,
@@ -9,138 +9,59 @@ import {
   Text,
 } from "lunchbox/components.ts";
 import { TEXT_TYPES } from "lunchbox/src/enums.ts";
+import Menu from "./Menu.tsx";
 
 export default function () {
-  const [
-    onPanel,
-    setPanel,
-  ] = useState<boolean>(false);
+  const initialState = {
+    onPanel: true,
+    isProse: false,
+    baseText: "Text",
+    hasCode: false,
+    textCode: "Code",
+    hasKbd: false,
+    textKbd: "⌘ Cmd + z",
+    hasLink: false,
+    textLink: "Link",
+    showBuffer: false,
+  };
 
-  const [
-    isProse,
-    setProse,
-  ] = useState<boolean>(false);
+  interface State {
+    onPanel: boolean;
+    isProse: boolean;
+    baseText: string;
+    hasCode: boolean;
+    textCode: string;
+    hasKbd: boolean;
+    textKbd: string;
+    hasLink: boolean;
+    textLink: string;
+    showBuffer: boolean;
+  }
 
-  const [
-    baseText,
-    setBaseText,
-  ] = useState<string>("Text");
+  type Action = {
+    type: "SET_FIELD";
+    field: keyof State;
+    value: State[keyof State];
+  };
 
-  const [
-    hasCode,
-    setCode,
-  ] = useState<boolean>(false);
+  function reducer(state: State, action: Action): State {
+    switch (action.type) {
+      case "SET_FIELD":
+        return {
+          ...state,
+          [action.field]: action.value,
+        };
+      default:
+        throw new Error(`Unknown action type: ${action.type}`);
+    }
+  }
 
-  const [
-    textCode,
-    setTextCode,
-  ] = useState<string>("Code");
-
-  const [
-    hasKbd,
-    setKbd,
-  ] = useState<boolean>(false);
-
-  const [
-    textKbd,
-    setTextKbd,
-  ] = useState<string>("⌘ Cmd + z");
-
-  const [
-    hasLink,
-    setLink,
-  ] = useState<boolean>(false);
-
-  const [
-    textLink,
-    setTextLink,
-  ] = useState<string>("Link");
-
-  const [
-    showBuffer,
-    setBuffer,
-  ] = useState<boolean>(false);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <div class="flex">
-      <div class="w-56 mr-4 flex flex-col gap-4">
-        <Text type="subheading" noMargins>Configure</Text>
-        <Input
-          type="checkbox"
-          label="On a panel"
-          checked={onPanel}
-          onChange={() => setPanel(!onPanel)}
-        />
-        <Input
-          type="checkbox"
-          label="Show Prose"
-          checked={isProse}
-          onChange={() => setProse(!isProse)}
-        />
-        <div hidden={isProse}>
-          <div class="flex flex-col gap-4">
-            <Input
-              label="Base text"
-              value={baseText}
-              onkeyup={(ev: Event) =>
-                setBaseText((ev.target as HTMLInputElement).value)}
-            />
-            <Input
-              type="checkbox"
-              label="Show inline Code"
-              checked={hasCode}
-              onChange={() => setCode(!hasCode)}
-            />
-            <div hidden={!hasCode}>
-              <Input
-                label="Code text"
-                value={textCode}
-                onkeyup={(ev: Event) =>
-                  setTextCode((ev.target as HTMLInputElement).value)}
-              />
-            </div>
-            <Input
-              type="checkbox"
-              label="Show Kbd"
-              checked={hasKbd}
-              onChange={() => setKbd(!hasKbd)}
-            />
-            <div hidden={!hasKbd}>
-              <Input
-                label="Kbd text"
-                value={textKbd}
-                onkeyup={(ev: Event) =>
-                  setTextKbd((ev.target as HTMLInputElement).value)}
-              />
-            </div>
-            <Input
-              type="checkbox"
-              label="Show Link"
-              checked={hasLink}
-              onChange={() => setLink(!hasLink)}
-            />
-            <div hidden={!hasLink}>
-              <Input
-                label="Link text"
-                value={textLink}
-                onkeyup={(ev: Event) =>
-                  setTextLink((ev.target as HTMLInputElement).value)}
-              />
-            </div>
-            <Input
-              type="checkbox"
-              label="Show Buffer Text"
-              checked={showBuffer}
-              onChange={() => setBuffer(!showBuffer)}
-            />
-          </div>
-        </div>
-      </div>
-      <Panel
-        class="flex-1 rounded gap-4 p-4"
-        nostyle={!onPanel}
-      >
-        {isProse
+    <div class="flex flex-col gap-4">
+      <Panel class="flex-1 rounded gap-4 p-4" nostyle={!state.onPanel}>
+        {state.isProse
           ? (
             <div class="prose">
               <Text type="display">Prose</Text>
@@ -173,22 +94,151 @@ export default function () {
               </Text>
             </div>
           )
-          : TEXT_TYPES.map((TEXT_TYPE, index) => (
-            <Text type={TEXT_TYPE}>
-              {baseText} {hasCode ? <Code>{textCode}</Code> : ""}{" "}
-              {hasKbd ? <Kbd>{textKbd}</Kbd> : ""}{" "}
-              {hasLink ? <Link>{textLink}</Link> : ""} {showBuffer
-                ? (
-                  <>
-                    {...new Array(index * index + 1).fill(
-                      "extra extra extra extra ",
-                    )}
-                  </>
-                )
-                : ""}
-            </Text>
-          ))}
+          : (
+            TEXT_TYPES.map((TEXT_TYPE, index) => (
+              <Text type={TEXT_TYPE}>
+                {state.baseText}{" "}
+                {state.hasCode ? <Code>{state.textCode}</Code> : ""}{" "}
+                {state.hasKbd ? <Kbd>{state.textKbd}</Kbd> : ""}{" "}
+                {state.hasLink ? <Link>{state.textLink}</Link> : ""}{" "}
+                {state.showBuffer
+                  ? (
+                    <>
+                      {...new Array(index * index + 1).fill(
+                        "extra extra extra extra ",
+                      )}
+                    </>
+                  )
+                  : (
+                    ""
+                  )}
+              </Text>
+            ))
+          )}
       </Panel>
+      <Menu button="Configuration" hardToggle>
+        <div class="p-2 flex flex-col gap-2">
+          <Text type="subheading" noMargins>
+            Configure
+          </Text>
+          <Input
+            type="checkbox"
+            label="On a panel"
+            checked={state.onPanel}
+            onChange={() =>
+              dispatch({
+                type: "SET_FIELD",
+                field: "onPanel",
+                value: !state.onPanel,
+              })}
+          />
+          <Input
+            type="checkbox"
+            label="Show Prose"
+            checked={state.isProse}
+            onChange={() =>
+              dispatch({
+                type: "SET_FIELD",
+                field: "isProse",
+                value: !state.isProse,
+              })}
+          />
+          <div hidden={state.isProse}>
+            <div class="flex flex-col gap-4">
+              <Input
+                label="Base text"
+                value={state.baseText}
+                onkeyup={(ev: Event) =>
+                  dispatch({
+                    type: "SET_FIELD",
+                    field: "baseText",
+                    value: (ev.target as HTMLInputElement).value,
+                  })}
+              />
+              <Input
+                type="checkbox"
+                label="Show inline Code"
+                checked={state.hasCode}
+                onChange={() =>
+                  dispatch({
+                    type: "SET_FIELD",
+                    field: "hasCode",
+                    value: !state.hasCode,
+                  })}
+              />
+              <div hidden={!state.hasCode}>
+                <Input
+                  label="Code text"
+                  value={state.textCode}
+                  onkeyup={(ev: Event) =>
+                    dispatch({
+                      type: "SET_FIELD",
+                      field: "textCode",
+                      value: (ev.target as HTMLInputElement).value,
+                    })}
+                />
+              </div>
+              <Input
+                type="checkbox"
+                label="Show Kbd"
+                checked={state.hasKbd}
+                onChange={() =>
+                  dispatch({
+                    type: "SET_FIELD",
+                    field: "hasKbd",
+                    value: !state.hasKbd,
+                  })}
+              />
+              <div hidden={!state.hasKbd}>
+                <Input
+                  label="Kbd text"
+                  value={state.textKbd}
+                  onkeyup={(ev: Event) =>
+                    dispatch({
+                      type: "SET_FIELD",
+                      field: "textKbd",
+                      value: (ev.target as HTMLInputElement).value,
+                    })}
+                />
+              </div>
+              <Input
+                type="checkbox"
+                label="Show Link"
+                checked={state.hasLink}
+                onChange={() =>
+                  dispatch({
+                    type: "SET_FIELD",
+                    field: "hasLink",
+                    value: !state.hasLink,
+                  })}
+              />
+              <div hidden={!state.hasLink}>
+                <Input
+                  label="Link text"
+                  value={state.textLink}
+                  onkeyup={(ev: Event) =>
+                    dispatch({
+                      type: "SET_FIELD",
+                      field: "textLink",
+                      value: (ev.target as HTMLInputElement).value,
+                    })}
+                />
+              </div>
+              <Input
+                type="checkbox"
+                label="Show Buffer Text"
+                checked={state.showBuffer}
+                onChange={() =>
+                  dispatch({
+                    type: "SET_FIELD",
+                    field: "showBuffer",
+                    value: !state.showBuffer,
+                  })}
+              />
+            </div>
+          </div>
+        </div>
+      </Menu>
     </div>
   );
 }

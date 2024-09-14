@@ -24,7 +24,7 @@ export default function () {
   return (
     <div class="flex flex-col gap-4">
       <Panel
-        class="p-4 h-36 flex flex-col justify-center items-center w-full"
+        class="p-4 h-36 flex flex-col justify-center items-center w-full gap-2"
         nostyle={!onPanel}
       >
         <Button tabindex={0} type={buttonType} padding={buttonPadding}>
@@ -35,7 +35,7 @@ export default function () {
         </Text>
       </Panel>
       <Menu button="Configuration" hardToggle>
-        <div class="p-2 flex flex-col gap-2">
+        <div class="px-4 py-2 flex flex-col gap-2">
           <Input
             type="checkbox"
             label="On a panel"
@@ -79,6 +79,7 @@ export default function () {
           <Input
             label="Button value"
             value={buttonContent}
+            maxWidth
             onkeyup={(ev: Event) =>
               setButtonContent((ev.target as HTMLInputElement).value)}
           />

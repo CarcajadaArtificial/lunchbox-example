@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.30
+
+- Updated the `<DemoButton/>`, `<DemoHeader/>`, `<DemoInput/>`, `<DemoText/>`,
+  and `<Menu/>` islands.
+
 ## v0.0.29
 
 - Updated the `<DemoButton/>`, and the `<DemoMenu/>` island.

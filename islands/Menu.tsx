@@ -6,7 +6,7 @@ export default function (props: Partial<iMenu>) {
   const { children, ...p } = props;
   return (
     <Menu {...p}>
-      <Panel class="rounded p-1">
+      <Panel class="rounded">
         {Array.isArray(children)
           ? children.map((child) => <MenuItem>{child}</MenuItem>)
           : children}
