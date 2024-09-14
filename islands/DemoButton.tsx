@@ -49,7 +49,7 @@ export default function () {
                 label={buttonType}
                 value={buttonType}
                 name="button_types"
-                selected={buttonType === "default"}
+                checked={buttonType === "default"}
                 data-label={buttonType}
                 onchange={(ev: Event) =>
                   setButtonType(
@@ -66,7 +66,7 @@ export default function () {
                 label={buttonPadding}
                 value={buttonPadding}
                 name="button_paddings"
-                selected={buttonPadding === "default"}
+                checked={buttonPadding === "default"}
                 data-label={buttonPadding}
                 onchange={(ev: Event) =>
                   setButtonPadding(

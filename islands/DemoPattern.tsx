@@ -1,6 +1,7 @@
 import { useState } from "preact/hooks";
-import { Fieldset, Input, Panel, Pattern, Text } from "lunchbox/components.ts";
+import { Fieldset, Input, Panel, Pattern } from "lunchbox/components.ts";
 import { PATTERN_TYPES, PatternTypes } from "lunchbox/src/enums.ts";
+import Menu from "./Menu.tsx";
 
 export default function () {
   const [onPanel, setPanel] = useState<boolean>(true);
@@ -8,38 +9,8 @@ export default function () {
   const [patternType, setPatternType] = useState<PatternTypes>("cloud");
 
   return (
-    <div class="flex">
-      <div class="w-56 mr-4 flex flex-col gap-4">
-        <Text type="subheading" noMargins>Configure</Text>
-        <Input
-          type="checkbox"
-          label="On a panel"
-          checked={onPanel}
-          onChange={() => setPanel(!onPanel)}
-        />
-        <Input
-          type="checkbox"
-          label="Flipped"
-          checked={isFlipped}
-          onChange={() => setFlipped(!isFlipped)}
-        />
-        <Fieldset
-          name="pattern_types"
-          legend="Patterm Type"
-          values={[...PATTERN_TYPES]}
-          selectedValues={[patternType]}
-          fwd={{
-            input: {
-              onchange: (ev: Event) =>
-                setPatternType(
-                  (ev.target as HTMLInputElement)
-                    .dataset["label"] as PatternTypes,
-                ),
-            },
-          }}
-        />
-      </div>
-      <div class="w-full">
+    <div class="flex flex-col gap-4">
+      <div>
         <Pattern flip hidden={!isFlipped} type={patternType} />
         <Panel
           class={`block rounded-${isFlipped ? "b" : "t"}-lg h-36`}
@@ -54,6 +25,39 @@ export default function () {
         </Panel>
         <Pattern hidden={isFlipped} type={patternType} />
       </div>
+      <Menu button="Configuration" hardToggle>
+        <div class="py-2 px-4 flex flex-col gap-2">
+          <Input
+            type="checkbox"
+            label="On a panel"
+            checked={onPanel}
+            onChange={() => setPanel(!onPanel)}
+          />
+          <Input
+            type="checkbox"
+            label="Flipped"
+            checked={isFlipped}
+            onChange={() => setFlipped(!isFlipped)}
+          />
+          <Fieldset legend="Patterm Type">
+            {[...PATTERN_TYPES].map((patternType) => (
+              <Input
+                type="radio"
+                label={patternType}
+                value={patternType}
+                name="pattern_types"
+                checked={patternType === "cloud"}
+                data-label={patternType}
+                onchange={(ev: Event) =>
+                  setPatternType(
+                    (ev.target as HTMLInputElement)
+                      .dataset["label"] as PatternTypes,
+                  )}
+              />
+            ))}
+          </Fieldset>
+        </div>
+      </Menu>
     </div>
   );
 }

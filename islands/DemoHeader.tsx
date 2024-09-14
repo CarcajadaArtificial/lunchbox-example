@@ -21,7 +21,7 @@ export default function () {
             <Text class="mb-8">
               Press <Kbd>Tab</Kbd> and use the keyboard to move around.
             </Text>
-            <Menu button="Configuration" hardToggle>
+            <Menu button="Configuration" hardToggle style={{ zIndex: 33 }}>
               <div class="p-2 flex flex-col gap-2 text-left">
                 <Input
                   type="checkbox"

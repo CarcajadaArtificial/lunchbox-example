@@ -25,26 +25,16 @@ export default function () {
     showBuffer: false,
   };
 
-  interface State {
-    onPanel: boolean;
-    isProse: boolean;
-    baseText: string;
-    hasCode: boolean;
-    textCode: string;
-    hasKbd: boolean;
-    textKbd: string;
-    hasLink: boolean;
-    textLink: string;
-    showBuffer: boolean;
-  }
-
   type Action = {
     type: "SET_FIELD";
-    field: keyof State;
-    value: State[keyof State];
+    field: keyof typeof initialState;
+    value: typeof initialState[keyof typeof initialState];
   };
 
-  function reducer(state: State, action: Action): State {
+  function reducer(
+    state: typeof initialState,
+    action: Action,
+  ): typeof initialState {
     switch (action.type) {
       case "SET_FIELD":
         return {
@@ -117,10 +107,7 @@ export default function () {
           )}
       </Panel>
       <Menu button="Configuration" hardToggle>
-        <div class="p-2 flex flex-col gap-2">
-          <Text type="subheading" noMargins>
-            Configure
-          </Text>
+        <div class="py-2 px-4 flex flex-col gap-2">
           <Input
             type="checkbox"
             label="On a panel"

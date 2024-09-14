@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.31
+
+- Updated the `<DemoButton/>`, `<DemoHeader/>`, `<DemoLinkmap/>`, `<DemoText/>`,
+  `<DemoLoader/>`, and `<DemoPattern/>` islands.
+
 ## v0.0.30
 
 - Updated the `<DemoButton/>`, `<DemoHeader/>`, `<DemoInput/>`, `<DemoText/>`,
