@@ -40,14 +40,14 @@ export default function () {
             onChange={() => setFlipped(!isFlipped)}
           />
           <Fieldset legend="Patterm Type">
-            {[...PATTERN_TYPES].map((patternType) => (
+            {[...PATTERN_TYPES].map((currentPatternType) => (
               <Input
                 type="radio"
-                label={patternType}
-                value={patternType}
+                label={currentPatternType}
+                value={currentPatternType}
                 name="pattern_types"
-                checked={patternType === "cloud"}
-                data-label={patternType}
+                checked={currentPatternType === patternType}
+                data-label={currentPatternType}
                 onchange={(ev: Event) =>
                   setPatternType(
                     (ev.target as HTMLInputElement)
