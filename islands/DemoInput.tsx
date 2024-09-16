@@ -1,263 +1,295 @@
-import { useState } from "preact/hooks";
+import { useReducer } from "preact/hooks";
 import {
   Fieldset,
   Input,
   Panel,
   Select,
-  Text,
   TextArea,
 } from "lunchbox/components.ts";
+import Menu from "./Menu.tsx";
 
 export default function () {
-  const [
-    onPanel,
-    setPanel,
-  ] = useState<boolean>(true);
+  const initialState = {
+    onPanel: true,
+    maxWidth: false,
+    inputElement: "input",
+    inputLabel: "Example label",
+    inputError: "",
+    inputType: "text",
+    inputTypeGroup: "text",
+    inputPlaceholder: "Placeholder",
+    options: "Option 1, Option 2, Option 3",
+    allowMultiple: false,
+  };
 
-  const [
-    maxWidth,
-    setMaxWidth,
-  ] = useState<boolean>(false);
+  type Action = {
+    type: "UPDATE_FIELD" | "TOGGLE_FIELD";
+    field: keyof typeof initialState;
+    value?: typeof initialState[keyof typeof initialState];
+  };
 
-  const [
-    inputElement,
-    setInputElement,
-  ] = useState<string>("input");
+  function reducer(state: typeof initialState, action: Action) {
+    switch (action.type) {
+      case "UPDATE_FIELD":
+        return {
+          ...state,
+          [action.field]: action.value,
+        };
+      case "TOGGLE_FIELD":
+        return {
+          ...state,
+          [action.field]: !state[action.field],
+        };
+      default:
+        return state;
+    }
+  }
 
-  const [
-    inputLabel,
-    setInputLabel,
-  ] = useState<string>("Example label");
-
-  const [
-    inputError,
-    setInputError,
-  ] = useState<string>("");
-
-  const [
-    inputType,
-    setInputType,
-  ] = useState<string>("text");
-
-  const [
-    inputTypeGroup,
-    setInputTypeGroup,
-  ] = useState<string>("text");
-
-  const [
-    inputPlaceholder,
-    setInputPlaceholder,
-  ] = useState<string>("Placeholder");
-
-  const [
-    options,
-    setOptions,
-  ] = useState<string>("Option 1, Option 2, Option 3");
-
-  const [
-    allowMultiple,
-    setAllowMultiple,
-  ] = useState<boolean>(false);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const onChangeInputType = (ev: Event) =>
-    setInputType((ev.target as HTMLInputElement).dataset["label"]!);
+    dispatch({
+      type: "UPDATE_FIELD",
+      field: "inputType",
+      value: (ev.target as HTMLInputElement).value,
+    });
 
   return (
-    <div class="flex">
-      <div class="w-56 mr-4 flex flex-col gap-4">
-        <Text type="subheading" noMargins>Configure</Text>
-        <Input
-          type="checkbox"
-          label="On a panel"
-          checked={onPanel}
-          onChange={() => setPanel(!onPanel)}
-        />
-        <Input
-          type="checkbox"
-          label="Max width"
-          checked={maxWidth}
-          onChange={() => setMaxWidth(!maxWidth)}
-        />
-        <Input
-          label="Input label"
-          value={inputLabel}
-          onkeyup={(ev: Event) =>
-            setInputLabel((ev.target as HTMLInputElement).value)}
-        />
-        <Input
-          label="Input error"
-          value={inputError}
-          onkeyup={(ev: Event) =>
-            setInputError((ev.target as HTMLInputElement).value)}
-        />
-        <Input
-          label="Input placeholder"
-          value={inputPlaceholder}
-          onkeyup={(ev: Event) =>
-            setInputPlaceholder((ev.target as HTMLInputElement).value)}
-        />
-        <Fieldset
-          name="input_elements"
-          legend="Input Element"
-          selectedValues={[inputElement]}
-          values={[
-            "input",
-            "textarea",
-            "select",
-            "fieldset",
-          ]}
-          fwd={{
-            input: {
-              onchange: (ev: Event) =>
-                setInputElement(
-                  (ev.target as HTMLInputElement).dataset["label"]!,
-                ),
-            },
-          }}
-        />
-        {inputElement === "input"
-          ? (
-            <>
-              <Fieldset
-                name="input_type_groups"
-                legend="Input Type"
-                selectedValues={[inputTypeGroup]}
-                values={[
-                  "text",
-                  "dates",
-                  "other",
-                ]}
-                fwd={{
-                  input: {
-                    onchange: (ev: Event) =>
-                      setInputTypeGroup(
-                        (ev.target as HTMLInputElement).dataset["label"]!,
-                      ),
-                  },
-                }}
-              />
-              <Fieldset
-                name="input_types"
-                legend="Texts"
-                selectedValues={[inputType]}
-                hidden={inputTypeGroup !== "text"}
-                values={[
-                  "text",
-                  "email",
-                  "number",
-                  "password",
-                  "search",
-                  "tel",
-                  "url",
-                ]}
-                fwd={{ input: { onchange: onChangeInputType } }}
-              />
-              <Fieldset
-                name="input_types"
-                legend="Dates and times"
-                selectedValues={[inputType]}
-                hidden={inputTypeGroup !== "dates"}
-                values={[
-                  "date",
-                  "datetime-local",
-                  "month",
-                  "time",
-                  "week",
-                ]}
-                fwd={{ input: { onchange: onChangeInputType } }}
-              />
-              <Fieldset
-                name="input_types"
-                legend="Other"
-                selectedValues={[inputType]}
-                hidden={inputTypeGroup !== "other"}
-                values={[
-                  "checkbox",
-                  "color",
-                  "file",
-                  "hidden",
-                  "image",
-                  "radio",
-                  "range",
-                  "reset",
-                  "submit",
-                ]}
-                fwd={{ input: { onchange: onChangeInputType } }}
-              />
-            </>
-          )
-          : inputElement === "select"
-          ? (
-            <TextArea
-              label="Options"
-              value={options}
-              onkeyup={(ev: Event) =>
-                setOptions((ev.target as HTMLInputElement).value)}
-            />
-          )
-          : inputElement === "fieldset"
-          ? (
-            <>
-              <TextArea
-                label="Options"
-                value={options}
-                onkeyup={(ev: Event) =>
-                  setOptions((ev.target as HTMLInputElement).value)}
-              />
-              <Input
-                type="checkbox"
-                label="Allow Multiple"
-                checked={allowMultiple}
-                onChange={() => setAllowMultiple(!allowMultiple)}
-              />
-            </>
-          )
-          : null}
-      </div>
+    <div class="flex flex-col gap-4">
       <Panel
         class="flex-1 flex flex-col items-center justify-center rounded gap-4 p-4"
-        nostyle={!onPanel}
+        nostyle={!state.onPanel}
       >
-        {inputElement === "input"
+        {state.inputElement === "input"
           ? (
             <Input
-              label={inputLabel}
-              error={inputError}
-              maxWidth={maxWidth}
-              placeholder={inputPlaceholder}
-              type={inputType}
+              label={state.inputLabel}
+              error={state.inputError}
+              maxWidth={state.maxWidth}
+              placeholder={state.inputPlaceholder}
+              type={state.inputType}
             />
           )
-          : inputElement === "textarea"
+          : state.inputElement === "textarea"
           ? (
             <TextArea
-              label={inputLabel}
-              error={inputError}
-              maxWidth={maxWidth}
-              placeholder={inputPlaceholder}
+              label={state.inputLabel}
+              error={state.inputError}
+              maxWidth={state.maxWidth}
+              placeholder={state.inputPlaceholder}
             />
           )
-          : inputElement === "select"
+          : state.inputElement === "select"
           ? (
             <Select
-              label={inputLabel}
-              error={inputError}
-              maxWidth={maxWidth}
-              placeholder={inputPlaceholder}
-              options={options.split(",")}
+              label={state.inputLabel}
+              error={state.inputError}
+              maxWidth={state.maxWidth}
+              placeholder={state.inputPlaceholder}
+              options={state.options.split(",")}
             />
           )
-          : inputElement === "fieldset"
+          : state.inputElement === "fieldset"
           ? (
-            <Fieldset
-              legend={inputLabel}
-              values={options.split(",")}
-              maxWidth={maxWidth}
-              allowMultiple={allowMultiple}
-            />
+            <Fieldset legend={state.inputLabel} maxWidth={state.maxWidth}>
+              {state.options.split(",").map((currentOption) => (
+                <Input
+                  type={state.allowMultiple ? "checkbox" : "radio"}
+                  label={currentOption}
+                  value={currentOption}
+                  name="fieldset-example"
+                />
+              ))}
+            </Fieldset>
           )
           : null}
       </Panel>
+      <Menu button="Configuration" hardToggle>
+        <div class="py-2 px-4 flex flex-col gap-2">
+          <Input
+            type="checkbox"
+            label="On a panel"
+            checked={state.onPanel}
+            onChange={() =>
+              dispatch({ type: "TOGGLE_FIELD", field: "onPanel" })}
+          />
+          <Input
+            type="checkbox"
+            label="Max width"
+            checked={state.maxWidth}
+            onChange={() =>
+              dispatch({ type: "TOGGLE_FIELD", field: "maxWidth" })}
+          />
+          <Input
+            label="Input label"
+            value={state.inputLabel}
+            onkeyup={(ev: Event) =>
+              dispatch({
+                type: "UPDATE_FIELD",
+                field: "inputLabel",
+                value: (ev.target as HTMLInputElement).value,
+              })}
+          />
+          <Input
+            label="Input error"
+            value={state.inputError}
+            onkeyup={(ev: Event) =>
+              dispatch({
+                type: "UPDATE_FIELD",
+                field: "inputError",
+                value: (ev.target as HTMLInputElement).value,
+              })}
+          />
+          <Input
+            label="Input placeholder"
+            value={state.inputPlaceholder}
+            onkeyup={(ev: Event) =>
+              dispatch({
+                type: "UPDATE_FIELD",
+                field: "inputPlaceholder",
+                value: (ev.target as HTMLInputElement).value,
+              })}
+          />
+          <Fieldset legend="Input Element">
+            {["input", "textarea", "select", "fieldset"].map(
+              (currentInputElement) => (
+                <Input
+                  type="radio"
+                  label={currentInputElement}
+                  value={currentInputElement}
+                  name="input_elements"
+                  checked={currentInputElement === state.inputElement}
+                  data-label={currentInputElement}
+                  onchange={(ev: Event) =>
+                    dispatch({
+                      type: "UPDATE_FIELD",
+                      field: "inputElement",
+                      value: (ev.target as HTMLInputElement).dataset[
+                        "label"
+                      ] as string,
+                    })}
+                />
+              ),
+            )}
+          </Fieldset>
+          {state.inputElement === "input"
+            ? (
+              <div>
+                <Fieldset legend="Input Type">
+                  {["text", "dates", "other"].map((currentInputTypeGroup) => (
+                    <Input
+                      type="radio"
+                      label={currentInputTypeGroup}
+                      value={currentInputTypeGroup}
+                      name="input_type_groups"
+                      checked={currentInputTypeGroup === state.inputTypeGroup}
+                      data-label={currentInputTypeGroup}
+                      onchange={(ev: Event) =>
+                        dispatch({
+                          type: "UPDATE_FIELD",
+                          field: "inputTypeGroup",
+                          value: (ev.target as HTMLInputElement).dataset[
+                            "label"
+                          ] as string,
+                        })}
+                    />
+                  ))}
+                </Fieldset>
+                {state.inputTypeGroup === "text"
+                  ? (
+                    <Select
+                      label="Texts"
+                      placeholder="Select Input Type"
+                      value={state.inputType}
+                      options={[
+                        "text",
+                        "email",
+                        "number",
+                        "password",
+                        "search",
+                        "tel",
+                        "url",
+                      ]}
+                      onchange={onChangeInputType}
+                    />
+                  )
+                  : state.inputTypeGroup === "dates"
+                  ? (
+                    <Select
+                      label="Dates"
+                      value={state.inputType}
+                      placeholder="Select Input Type"
+                      options={[
+                        "date",
+                        "datetime-local",
+                        "month",
+                        "time",
+                        "week",
+                      ]}
+                      onchange={onChangeInputType}
+                    />
+                  )
+                  : state.inputTypeGroup === "other"
+                  ? (
+                    <Select
+                      label="Others"
+                      value={state.inputType}
+                      placeholder="Select Input Type"
+                      options={[
+                        "checkbox",
+                        "color",
+                        "file",
+                        "hidden",
+                        "image",
+                        "radio",
+                        "range",
+                        "reset",
+                        "submit",
+                      ]}
+                      onchange={onChangeInputType}
+                    />
+                  )
+                  : null}
+              </div>
+            )
+            : state.inputElement === "select"
+            ? (
+              <TextArea
+                label="Options"
+                value={state.options}
+                onkeyup={(ev: Event) =>
+                  dispatch({
+                    type: "UPDATE_FIELD",
+                    field: "options",
+                    value: (ev.target as HTMLInputElement).value,
+                  })}
+              />
+            )
+            : state.inputElement === "fieldset"
+            ? (
+              <>
+                <TextArea
+                  label="Options"
+                  value={state.options}
+                  onkeyup={(ev: Event) =>
+                    dispatch({
+                      type: "UPDATE_FIELD",
+                      field: "options",
+                      value: (ev.target as HTMLInputElement).value,
+                    })}
+                />
+                <Input
+                  type="checkbox"
+                  label="Allow Multiple"
+                  checked={state.allowMultiple}
+                  onChange={() =>
+                    dispatch({ type: "TOGGLE_FIELD", field: "allowMultiple" })}
+                />
+              </>
+            )
+            : null}
+        </div>
+      </Menu>
     </div>
   );
 }
