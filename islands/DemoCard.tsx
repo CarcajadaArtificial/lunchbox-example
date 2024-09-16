@@ -3,9 +3,6 @@ import { Button, Card, Link, Separator, Text } from "lunchbox/components.ts";
 export default function () {
   return (
     <div>
-      <div class="flex flex-col gap-4">
-        <Text type="subheading" noMargins>Configure</Text>
-      </div>
       <Card imageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/SIPI_Jelly_Beans_4.1.07.tiff/lossy-page1-256px-SIPI_Jelly_Beans_4.1.07.tiff.jpg">
         <Text noMargins type="heading">Standard Test Image</Text>
         <Text>

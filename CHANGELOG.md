@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.35
+
+- Updated all markdown content inside home.
+
 ## v0.0.34
 
 - Forgot to update changelog.
