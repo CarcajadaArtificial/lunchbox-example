@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.0.34
+
+- Forgot to update changelog.
+
+## v0.0.33
+
+- Updated the `<DemoNavigation/>`, and `<DemoPattern/>` island.
+- Removed the test route.
+
 ## v0.0.32
 
 - Updated the `<DemoInput/>` island.
