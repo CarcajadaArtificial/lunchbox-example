@@ -24,7 +24,7 @@ export default function (props: { children: ComponentChildren }) {
             </Text>
           </div>
         </Module>
-        <Module size="sm" />
+        <Module size="xs" />
         <Module size="lg">
           {props.children}
           <Menu button="Configuration" hardToggle style={{ zIndex: 33 }}>

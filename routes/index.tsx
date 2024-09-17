@@ -43,20 +43,25 @@ export default async function Home() {
                   {
                     name: "Components",
                     children: [
-                      { name: "Page Components", url: "#page-components" },
-                      { name: "Panel", url: "#panel" },
-                      { name: "Button", url: "#button" },
-                      { name: "Input", url: "#input" },
-                      { name: "Text", url: "#text" },
-                      { name: "Pattern", url: "#pattern" },
-                      { name: "Linkmap", url: "#linkmap" },
-                      { name: "Loader", url: "#loader" },
-                      { name: "Card", url: "#Card" },
-                      { name: "Separator", url: "#Separator" },
-                      { name: "Markdown", url: "#Markdown" },
+                      { name: "Page Components", href: "/#page-components" },
+                      { name: "Panel", href: "#panel" },
+                      { name: "Button", href: "#button" },
+                      { name: "Input", href: "#input" },
+                      { name: "Text", href: "#text" },
+                      { name: "Pattern", href: "#pattern" },
+                      { name: "Linkmap", href: "#linkmap" },
+                      { name: "Loader", href: "#loader" },
+                      { name: "Card", href: "#card" },
+                      { name: "Separator", href: "#separator" },
+                      { name: "Markdown", href: "#markdown" },
                     ],
                   },
-                  { name: "Islands" },
+                  {
+                    name: "Islands",
+                    children: [
+                      { name: "Menu", href: "#menu" },
+                    ],
+                  },
                 ]}
               />
             </Sidebar>
@@ -126,6 +131,10 @@ export default async function Home() {
                 scss: await mdFetch("../content/page_md_scss.md"),
                 html: await mdFetch("../content/page_md_html.md"),
               }}
+            />
+            <Markdown
+              class="my-8"
+              markdownContent={await mdFetch("../content/home_menu.md")}
             />
           </Module>
         </Layout>

@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.37
+
+- Added the menu documentation.
+
 ## v0.0.36
 
 - Added the `page` route.
