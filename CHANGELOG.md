@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.36
+
+- Added the `page` route.
+- Updated the `<DemoLayout/>` island.
+
 ## v0.0.35
 
 - Updated all markdown content inside home.

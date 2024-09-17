@@ -23,7 +23,6 @@ import * as $DemoMenu from "./islands/DemoMenu.tsx";
 import * as $DemoNavigation from "./islands/DemoNavigation.tsx";
 import * as $DemoPattern from "./islands/DemoPattern.tsx";
 import * as $DemoText from "./islands/DemoText.tsx";
-import * as $KvAutocomplete from "./islands/KvAutocomplete.tsx";
 import * as $Menu from "./islands/Menu.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
@@ -52,7 +51,6 @@ const manifest = {
     "./islands/DemoNavigation.tsx": $DemoNavigation,
     "./islands/DemoPattern.tsx": $DemoPattern,
     "./islands/DemoText.tsx": $DemoText,
-    "./islands/KvAutocomplete.tsx": $KvAutocomplete,
     "./islands/Menu.tsx": $Menu,
   },
   baseUrl: import.meta.url,
