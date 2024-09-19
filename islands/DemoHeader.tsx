@@ -1,12 +1,10 @@
 import { useState } from "preact/hooks";
-import {
-  Header,
-  Input,
-  Kbd,
-  Layout,
-  Module,
-  Text,
-} from "lunchbox/components.ts";
+import Header from "lunchbox/components/Header/index.tsx";
+import Input from "lunchbox/components/Input/index.tsx";
+import Kbd from "lunchbox/components/Kbd/index.tsx";
+import Layout from "lunchbox/components/Layout/index.tsx";
+import Module from "lunchbox/components/Module/index.tsx";
+import Text from "lunchbox/components/Text/index.tsx";
 import Menu from "./Menu.tsx";
 import { ComponentChildren } from "preact";
 

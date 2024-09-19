@@ -1,11 +1,9 @@
 import { useReducer } from "preact/hooks";
-import {
-  Fieldset,
-  Input,
-  Panel,
-  Select,
-  TextArea,
-} from "lunchbox/components.ts";
+import Fieldset from "lunchbox/components/Fieldset/index.tsx";
+import Input from "lunchbox/components/Input/index.tsx";
+import Panel from "lunchbox/components/Panel/index.tsx";
+import Select from "lunchbox/components/Select/index.tsx";
+import TextArea from "lunchbox/components/TextArea/index.tsx";
 import Menu from "./Menu.tsx";
 
 export default function () {

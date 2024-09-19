@@ -1,13 +1,11 @@
 import { useState } from "preact/hooks";
-import {
-  Button,
-  Input,
-  Layout,
-  Module,
-  Panel,
-  Select,
-  Text,
-} from "lunchbox/components.ts";
+import Button from "lunchbox/components/Button/index.tsx";
+import Input from "lunchbox/components/Input/index.tsx";
+import Layout from "lunchbox/components/Layout/index.tsx";
+import Module from "lunchbox/components/Module/index.tsx";
+import Panel from "lunchbox/components/Panel/index.tsx";
+import Select from "lunchbox/components/Select/index.tsx";
+import Text from "lunchbox/components/Text/index.tsx";
 import type { iModule } from "lunchbox/components/Module/setup.ts";
 import { MODULE_SIZES, type ModuleSizes } from "lunchbox/src/enums.ts";
 

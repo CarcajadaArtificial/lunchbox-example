@@ -1,10 +1,8 @@
-import {
-  Button,
-  Layout,
-  Link,
-  Module,
-  Navigation,
-} from "lunchbox/components.ts";
+import Button from "lunchbox/components/Button/index.tsx";
+import Layout from "lunchbox/components/Layout/index.tsx";
+import Link from "lunchbox/components/Link/index.tsx";
+import Module from "lunchbox/components/Module/index.tsx";
+import Navigation from "lunchbox/components/Navigation/index.tsx";
 
 export default function () {
   return (

@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.39
+
+- Updated all the import statements
+- Removed the API and DB test functionalities.
+
 ## v0.0.38
 
 - Added minor updates in the menu and welcome markdown content.

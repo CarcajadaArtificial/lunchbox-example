@@ -22,7 +22,6 @@
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
     "$std/": "https://deno.land/std@0.216.0/",
-    "lunchbox": "../lunchbox/mod.ts",
     "lunchbox/": "../lunchbox/"
   },
   "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" },

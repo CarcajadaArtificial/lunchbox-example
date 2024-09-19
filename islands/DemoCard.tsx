@@ -1,4 +1,8 @@
-import { Button, Card, Link, Separator, Text } from "lunchbox/components.ts";
+import Button from "lunchbox/components/Button/index.tsx";
+import Card from "lunchbox/components/Card/index.tsx";
+import Link from "lunchbox/components/Link/index.tsx";
+import Separator from "lunchbox/components/Separator/index.tsx";
+import Text from "lunchbox/components/Text/index.tsx";
 
 export default function () {
   return (

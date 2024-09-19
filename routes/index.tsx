@@ -1,14 +1,12 @@
-import {
-  Layout,
-  Linkmap,
-  Main,
-  Markdown,
-  Module,
-  Panel,
-  Separator,
-  Sidebar,
-  Text,
-} from "lunchbox/components.ts";
+import Layout from "lunchbox/components/Layout/index.tsx";
+import Linkmap from "lunchbox/components/Linkmap/index.tsx";
+import Main from "lunchbox/components/Main/index.tsx";
+import Markdown from "lunchbox/components/Markdown/index.tsx";
+import Module from "lunchbox/components/Module/index.tsx";
+import Panel from "lunchbox/components/Panel/index.tsx";
+import Separator from "lunchbox/components/Separator/index.tsx";
+import Sidebar from "lunchbox/components/Sidebar/index.tsx";
+import Text from "lunchbox/components/Text/index.tsx";
 import { effects } from "lunchbox/src/styles.ts";
 import DemoButton from "@/islands/DemoButton.tsx";
 import DemoInput from "@/islands/DemoInput.tsx";

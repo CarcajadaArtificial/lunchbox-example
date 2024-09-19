@@ -1,11 +1,8 @@
 import { useState } from "preact/hooks";
-import {
-  Fieldset,
-  Input,
-  Layout,
-  Markdown,
-  Panel,
-} from "lunchbox/components.ts";
+import Fieldset from "lunchbox/components/Fieldset/index.tsx";
+import Input from "lunchbox/components/Input/index.tsx";
+import Markdown from "lunchbox/components/Markdown/index.tsx";
+import Panel from "lunchbox/components/Panel/index.tsx";
 import Menu from "./Menu.tsx";
 import "https://esm.sh/prismjs@1.29.0/components/prism-typescript?no-check&pin=v57";
 import "https://esm.sh/prismjs@1.29.0/components/prism-scss?no-check&pin=v57";

@@ -1,5 +1,6 @@
 import { Menu } from "lunchbox/islands.ts";
-import { MenuItem, Panel } from "lunchbox/components.ts";
+import MenuItem from "lunchbox/components/MenuItem/index.tsx";
+import Panel from "lunchbox/components/Panel/index.tsx";
 import type { iMenu } from "lunchbox/islands/Menu/setup.ts";
 
 export default function (props: Partial<iMenu>) {

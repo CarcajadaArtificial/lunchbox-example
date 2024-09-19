@@ -1,13 +1,11 @@
 import { useReducer } from "preact/hooks";
-import {
-  Code,
-  Input,
-  Kbd,
-  Link,
-  Panel,
-  Separator,
-  Text,
-} from "lunchbox/components.ts";
+import Code from "lunchbox/components/Code/index.tsx";
+import Input from "lunchbox/components/Input/index.tsx";
+import Kbd from "lunchbox/components/Kbd/index.tsx";
+import Link from "lunchbox/components/Link/index.tsx";
+import Panel from "lunchbox/components/Panel/index.tsx";
+import Separator from "lunchbox/components/Separator/index.tsx";
+import Text from "lunchbox/components/Text/index.tsx";
 import { TEXT_TYPES } from "lunchbox/src/enums.ts";
 import Menu from "./Menu.tsx";
 

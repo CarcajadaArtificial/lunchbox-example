@@ -4,10 +4,6 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
-import * as $api_chips_add from "./routes/api/chips/add.ts";
-import * as $api_chips_edit from "./routes/api/chips/edit.ts";
-import * as $api_chips_get from "./routes/api/chips/get.ts";
-import * as $api_chips_list from "./routes/api/chips/list.ts";
 import * as $index from "./routes/index.tsx";
 import * as $page from "./routes/page.tsx";
 import * as $DemoButton from "./islands/DemoButton.tsx";
@@ -30,10 +26,6 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
-    "./routes/api/chips/add.ts": $api_chips_add,
-    "./routes/api/chips/edit.ts": $api_chips_edit,
-    "./routes/api/chips/get.ts": $api_chips_get,
-    "./routes/api/chips/list.ts": $api_chips_list,
     "./routes/index.tsx": $index,
     "./routes/page.tsx": $page,
   },

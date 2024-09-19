@@ -1,5 +1,7 @@
 import { useState } from "preact/hooks";
-import { Input, Linkmap, Panel, Text } from "lunchbox/components.ts";
+import Input from "lunchbox/components/Input/index.tsx";
+import Linkmap from "lunchbox/components/Linkmap/index.tsx";
+import Panel from "lunchbox/components/Panel/index.tsx";
 import Menu from "./Menu.tsx";
 
 export default function () {
@@ -14,27 +16,27 @@ export default function () {
         >
           <Linkmap
             links={[
-              { name: "Test Link", url: "#" },
+              { name: "Test Link", href: "#" },
               { name: "Test Empty Link" },
               {
                 name: "Test Parent Link",
-                url: "#",
+                href: "#",
                 children: [
-                  { name: "Test Child Link", url: "#" },
+                  { name: "Test Child Link", href: "#" },
                   { name: "Test Empty Child Link" },
                   {
                     name: "Test Parent Link",
-                    url: "#",
+                    href: "#",
                     children: [
-                      { name: "Test Child Link", url: "#" },
+                      { name: "Test Child Link", href: "#" },
                       { name: "Test Empty Child Link" },
-                      { name: "Test Child Link", url: "#" },
+                      { name: "Test Child Link", href: "#" },
                     ],
                   },
-                  { name: "Test Child Link", url: "#" },
+                  { name: "Test Child Link", href: "#" },
                 ],
               },
-              { name: "Test Link", url: "#" },
+              { name: "Test Link", href: "#" },
             ]}
           />
         </Panel>

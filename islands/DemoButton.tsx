@@ -1,12 +1,10 @@
 import { useState } from "preact/hooks";
-import {
-  Button,
-  Fieldset,
-  Input,
-  Kbd,
-  Panel,
-  Text,
-} from "lunchbox/components.ts";
+import Button from "lunchbox/components/Button/index.tsx";
+import Fieldset from "lunchbox/components/Fieldset/index.tsx";
+import Input from "lunchbox/components/Input/index.tsx";
+import Kbd from "lunchbox/components/Kbd/index.tsx";
+import Panel from "lunchbox/components/Panel/index.tsx";
+import Text from "lunchbox/components/Text/index.tsx";
 import {
   BUTTON_PADDINGS,
   BUTTON_TYPES,

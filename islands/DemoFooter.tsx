@@ -1,4 +1,8 @@
-import { Footer, Layout, Link, Module, Text } from "lunchbox/components.ts";
+import Footer from "lunchbox/components/Footer/index.tsx";
+import Layout from "lunchbox/components/Layout/index.tsx";
+import Link from "lunchbox/components/Link/index.tsx";
+import Module from "lunchbox/components/Module/index.tsx";
+import Text from "lunchbox/components/Text/index.tsx";
 
 export default function () {
   return (
@@ -18,7 +22,7 @@ export default function () {
           </Text>
         </Module>
         <Module size="full">
-          <Text noMargins type="small" class="text-right">v0.0.38</Text>
+          <Text noMargins type="small" class="text-right">v0.0.39</Text>
         </Module>
       </Layout>
     </Footer>

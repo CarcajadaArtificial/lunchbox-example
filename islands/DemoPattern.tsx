@@ -1,5 +1,8 @@
 import { useState } from "preact/hooks";
-import { Fieldset, Input, Panel, Pattern } from "lunchbox/components.ts";
+import Fieldset from "lunchbox/components/Fieldset/index.tsx";
+import Input from "lunchbox/components/Input/index.tsx";
+import Panel from "lunchbox/components/Panel/index.tsx";
+import Pattern from "lunchbox/components/Pattern/index.tsx";
 import { PATTERN_TYPES, PatternTypes } from "lunchbox/src/enums.ts";
 import Menu from "./Menu.tsx";
 

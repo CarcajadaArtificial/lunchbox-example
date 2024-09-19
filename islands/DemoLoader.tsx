@@ -1,5 +1,9 @@
 import { useState } from "preact/hooks";
-import { Button, Input, Loader, Panel, Text } from "lunchbox/components.ts";
+import Button from "lunchbox/components/Button/index.tsx";
+import Input from "lunchbox/components/Input/index.tsx";
+import Loader from "lunchbox/components/Loader/index.tsx";
+import Panel from "lunchbox/components/Panel/index.tsx";
+import Text from "lunchbox/components/Text/index.tsx";
 import Menu from "./Menu.tsx";
 
 export default function () {
