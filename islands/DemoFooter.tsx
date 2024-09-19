@@ -1,22 +1,26 @@
-import { useState } from "preact/hooks";
-import { Footer, Input, Text } from "lunchbox/components.ts";
+import { Footer, Layout, Link, Module, Text } from "lunchbox/components.ts";
 
 export default function () {
-  const [isMadeWithFresh, setMadeWithFresh] = useState<boolean>(true);
-
   return (
-    <Footer layout="thirds" madeWithFresh={isMadeWithFresh}>
-      <div class="w-56 mr-4 flex flex-col gap-4">
-        <Text type="subheading" noMargins>Configure</Text>
-        <Input
-          type="checkbox"
-          label="Has the fresh badge"
-          checked={isMadeWithFresh}
-          onChange={() => setMadeWithFresh(!isMadeWithFresh)}
-        />
-      </div>
-      <div>
-      </div>
+    <Footer>
+      <Layout whitespace>
+        <Module size="sm">
+          <Link href="https://github.com/CarcajadaArtificial/lunchbox">
+            GitHub Repository
+          </Link>
+        </Module>
+        <Module size="lg">
+          <Text noMargins>
+            This was born of late nights by{" "}
+            <Link href="https://github.com/CarcajadaArtificial">
+              Poncho Guerrero
+            </Link>
+          </Text>
+        </Module>
+        <Module size="full">
+          <Text noMargins type="small" class="text-right">v0.0.38</Text>
+        </Module>
+      </Layout>
     </Footer>
   );
 }

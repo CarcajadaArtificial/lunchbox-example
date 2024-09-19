@@ -9,6 +9,7 @@ import {
   Sidebar,
   Text,
 } from "lunchbox/components.ts";
+import { effects } from "lunchbox/src/styles.ts";
 import DemoButton from "@/islands/DemoButton.tsx";
 import DemoInput from "@/islands/DemoInput.tsx";
 import DemoText from "@/islands/DemoText.tsx";
@@ -20,6 +21,7 @@ import DemoNavigation from "@/islands/DemoNavigation.tsx";
 import DemoMenu from "@/islands/DemoMenu.tsx";
 import DemoMarkdown from "@/islands/DemoMarkdown.tsx";
 import DemoHeader from "@/islands/DemoHeader.tsx";
+import DemoFooter from "@/islands/DemoFooter.tsx";
 
 const mdFetch = async (url: string) =>
   (await fetch(new URL(url, import.meta.url))).text();
@@ -62,6 +64,7 @@ export default async function Home() {
                       { name: "Menu", href: "#menu" },
                     ],
                   },
+                  { name: "Future Components?", href: "#future-components" },
                 ]}
               />
             </Sidebar>
@@ -136,9 +139,18 @@ export default async function Home() {
               class="my-8"
               markdownContent={await mdFetch("../content/home_menu.md")}
             />
+            <DemoMenu />
+            <Text id="future-components" type="title" class="mt-8">
+              Future Components?
+            </Text>
+            <Markdown
+              class={`my-8 ${effects.blur}`}
+              markdownContent={await mdFetch("../content/home_future.md")}
+            />
           </Module>
         </Layout>
       </Main>
+      <DemoFooter />
     </>
   );
 }

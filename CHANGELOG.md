@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.0.38
+
+- Added minor updates in the menu and welcome markdown content.
+- Added the `<DemoMenu/>` and `<DemoFooter/>` islands.
+- Added minot updates to the `<DemoHeader/>` and `<DemoMarkdown/>` islands.
+- Added rge future components section.
+
 ## v0.0.37
 
 - Added the menu documentation.

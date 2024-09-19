@@ -39,7 +39,7 @@ export default function (props: { markdownFiles: MarkdownFiles }) {
             checked={onPanel}
             onChange={() => setPanel(!onPanel)}
           />
-          <Fieldset legend="Layout Type">
+          <Fieldset legend="Markdown Content">
             {Object.keys(props.markdownFiles).map(
               (currentMarkdownFile) => (
                 <Input

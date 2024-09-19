@@ -18,7 +18,7 @@ export default function (props: { children: ComponentChildren }) {
       <Layout whitespace>
         <Module size="full">
           <div class="flex flex-col items-center text-center mb-24">
-            <Text type="display">Lunchbox 🍱 test site</Text>
+            <Text type="display">Lunchbox 🍱 example site</Text>
             <Text class="mb-8">
               Press <Kbd>Tab</Kbd> and use the keyboard to move around.
             </Text>
