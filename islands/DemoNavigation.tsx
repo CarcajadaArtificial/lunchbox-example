@@ -16,7 +16,7 @@ export default function () {
           </a>
         </Module>
         <Module size="lg" half="lg" class="flex gap-4">
-          <Link href="/page">Layout</Link>
+          <Link href="/layout">Layout</Link>
         </Module>
       </Layout>
     </Navigation>

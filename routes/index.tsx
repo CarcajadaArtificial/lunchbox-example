@@ -24,7 +24,7 @@ import DemoFooter from "@/islands/DemoFooter.tsx";
 const mdFetch = async (url: string) =>
   (await fetch(new URL(url, import.meta.url))).text();
 
-export default async function Home() {
+export default async function () {
   return (
     <>
       <DemoHeader>

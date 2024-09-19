@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.40
+
+- Added minor updates to the Menu and DemoNavigation islands.
+- Renamed the page route to layout.
+
 ## v0.0.39
 
 - Updated all the import statements

@@ -9,7 +9,7 @@ import DemoNavigation from "@/islands/DemoNavigation.tsx";
 const mdFetch = async (url: string) =>
   (await fetch(new URL(url, import.meta.url))).text();
 
-export default async function Page() {
+export default async function () {
   return (
     <>
       <Header>

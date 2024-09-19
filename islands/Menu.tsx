@@ -1,4 +1,4 @@
-import { Menu } from "lunchbox/islands.ts";
+import Menu from "lunchbox/islands/Menu/index.tsx";
 import MenuItem from "lunchbox/components/MenuItem/index.tsx";
 import Panel from "lunchbox/components/Panel/index.tsx";
 import type { iMenu } from "lunchbox/islands/Menu/setup.ts";
