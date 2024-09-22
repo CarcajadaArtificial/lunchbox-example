@@ -41,14 +41,14 @@ export default function () {
             onChange={() => setPanel(!onPanel)}
           />
           <Fieldset legend="Button Type">
-            {["default", ...BUTTON_TYPES].map((buttonType) => (
+            {["default", ...BUTTON_TYPES].map((currentButtonType) => (
               <Input
                 type="radio"
-                label={buttonType}
-                value={buttonType}
+                label={currentButtonType}
+                value={currentButtonType}
                 name="button_types"
-                checked={buttonType === "default"}
-                data-label={buttonType}
+                checked={currentButtonType === buttonType}
+                data-label={currentButtonType}
                 onchange={(ev: Event) =>
                   setButtonType(
                     (ev.target as HTMLInputElement)

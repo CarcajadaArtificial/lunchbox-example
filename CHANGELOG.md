@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.42
+
+- Added a fix to the button type configuration of the `DemoButton` island.
+
 ## v0.0.41
 
 - Updated to the latest version of Lunchbox.
