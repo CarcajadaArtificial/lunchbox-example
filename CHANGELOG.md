@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.0.41
+
+- Updated to the latest version of Lunchbox.
+
 ## v0.0.40
 
 - Added minor updates to the Menu and DemoNavigation islands.
