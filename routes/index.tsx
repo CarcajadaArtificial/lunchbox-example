@@ -20,9 +20,37 @@ import DemoMenu from "@/islands/DemoMenu.tsx";
 import DemoMarkdown from "@/islands/DemoMarkdown.tsx";
 import DemoHeader from "@/islands/DemoHeader.tsx";
 import DemoFooter from "@/islands/DemoFooter.tsx";
+import InterObs from "@/islands/InterObs.tsx";
+import InstanceDemo from "@/islands/InstanceDemo.tsx";
 
 const mdFetch = async (url: string) =>
   (await fetch(new URL(url, import.meta.url))).text();
+
+const md = {
+  welcome: await mdFetch("../content/home_welcome.md"),
+  page: await mdFetch("../content/home_page.md"),
+  panel: await mdFetch("../content/home_panel.md"),
+  button: await mdFetch("../content/home_button.md"),
+  input: await mdFetch("../content/home_input.md"),
+  text: await mdFetch("../content/home_text.md"),
+  pattern: await mdFetch("../content/home_pattern.md"),
+  linkmap: await mdFetch("../content/home_linkmap.md"),
+  loader: await mdFetch("../content/home_loader.md"),
+  card: await mdFetch("../content/home_card.md"),
+  separator: await mdFetch("../content/home_separator.md"),
+  markdown: await mdFetch("../content/home_markdown.md"),
+  menu: await mdFetch("../content/home_menu.md"),
+  interobs: await mdFetch("../content/home_interobs.md"),
+  future: await mdFetch("../content/home_future.md"),
+};
+
+const DemoPanel = () => (
+  <Panel class="test">
+    <Text noMargins>
+      This is a panel component.
+    </Text>
+  </Panel>
+);
 
 export default async function () {
   return (
@@ -30,7 +58,7 @@ export default async function () {
       <DemoHeader>
         <Markdown
           class="mb-8"
-          markdownContent={await mdFetch("../content/home_welcome.md")}
+          markdownContent={md.welcome}
         />
       </DemoHeader>
       <DemoNavigation />
@@ -60,6 +88,8 @@ export default async function () {
                     name: "Islands",
                     children: [
                       { name: "Menu", href: "#menu" },
+                      { name: "InterObs", href: "#interobs" },
+                      // { name: "Revealer", href: "#revealer" },
                     ],
                   },
                   { name: "Future Components?", href: "#future-components" },
@@ -68,83 +98,57 @@ export default async function () {
             </Sidebar>
           </Module>
           <Module size="lg">
-            <Markdown
-              class="my-8"
-              markdownContent={await mdFetch("../content/home_page.md")}
-            />
-            <Markdown
-              class="my-8"
-              markdownContent={await mdFetch("../content/home_panel.md")}
-            />
-            <Panel class="test">
-              <Text noMargins>
-                This is a panel component.
+            <InstanceDemo content={md.page} />
+            <InstanceDemo content={md.panel}>
+              <DemoPanel />
+            </InstanceDemo>
+            <InstanceDemo content={md.button}>
+              <DemoButton />
+            </InstanceDemo>
+            <InstanceDemo content={md.input}>
+              <DemoInput />
+            </InstanceDemo>
+            <InstanceDemo content={md.text}>
+              <DemoText />
+            </InstanceDemo>
+            <InstanceDemo content={md.pattern}>
+              <DemoPattern />
+            </InstanceDemo>
+            <InstanceDemo content={md.linkmap}>
+              <DemoLinkmap />
+            </InstanceDemo>
+            <InstanceDemo content={md.loader}>
+              <DemoLoader />
+            </InstanceDemo>
+            <InstanceDemo content={md.card}>
+              <DemoCard />
+            </InstanceDemo>
+            <InstanceDemo content={md.separator}>
+              <Separator />
+            </InstanceDemo>
+            <InstanceDemo content={md.markdown}>
+              <DemoMarkdown
+                markdownFiles={{
+                  prose: await mdFetch("../content/page_md_prose.md"),
+                  typescript: await mdFetch("../content/page_md_typescript.md"),
+                  scss: await mdFetch("../content/page_md_scss.md"),
+                  html: await mdFetch("../content/page_md_html.md"),
+                }}
+              />
+            </InstanceDemo>
+            <InstanceDemo content={md.menu}>
+              <DemoMenu />
+            </InstanceDemo>
+            <InstanceDemo content={md.interobs} />
+            <InterObs>
+              <Text id="future-components" type="title" class="mt-8">
+                Future Components?
               </Text>
-            </Panel>
-            <Markdown
-              class="my-8"
-              markdownContent={await mdFetch("../content/home_button.md")}
-            />
-            <DemoButton />
-            <Markdown
-              class="my-8"
-              markdownContent={await mdFetch("../content/home_input.md")}
-            />
-            <DemoInput />
-            <Markdown
-              class="my-8"
-              markdownContent={await mdFetch("../content/home_text.md")}
-            />
-            <DemoText />
-            <Markdown
-              class="my-8"
-              markdownContent={await mdFetch("../content/home_pattern.md")}
-            />
-            <DemoPattern />
-            <Markdown
-              class="my-8"
-              markdownContent={await mdFetch("../content/home_linkmap.md")}
-            />
-            <DemoLinkmap />
-            <Markdown
-              class="my-8"
-              markdownContent={await mdFetch("../content/home_loader.md")}
-            />
-            <DemoLoader />
-            <Markdown
-              class="my-8"
-              markdownContent={await mdFetch("../content/home_card.md")}
-            />
-            <DemoCard />
-            <Markdown
-              class="my-8"
-              markdownContent={await mdFetch("../content/home_separator.md")}
-            />
-            <Separator />
-            <Markdown
-              class="my-8"
-              markdownContent={await mdFetch("../content/home_markdown.md")}
-            />
-            <DemoMarkdown
-              markdownFiles={{
-                prose: await mdFetch("../content/page_md_prose.md"),
-                typescript: await mdFetch("../content/page_md_typescript.md"),
-                scss: await mdFetch("../content/page_md_scss.md"),
-                html: await mdFetch("../content/page_md_html.md"),
-              }}
-            />
-            <Markdown
-              class="my-8"
-              markdownContent={await mdFetch("../content/home_menu.md")}
-            />
-            <DemoMenu />
-            <Text id="future-components" type="title" class="mt-8">
-              Future Components?
-            </Text>
-            <Markdown
-              class={`my-8 ${effects.blur}`}
-              markdownContent={await mdFetch("../content/home_future.md")}
-            />
+              <Markdown
+                class={`my-8 ${effects.blur} select-none`}
+                markdownContent={md.future}
+              />
+            </InterObs>
           </Module>
         </Layout>
       </Main>

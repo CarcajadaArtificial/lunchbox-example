@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.0.43
+
+- Updated the lunchbox module import.
+- Added the `<InterObs/>` island to the documentation page.
+- Added rge `<InstanceDemo/>` island to define the abstract characteristics of
+  every demo.
+
 ## v0.0.42
 
 - Added a fix to the button type configuration of the `DemoButton` island.
