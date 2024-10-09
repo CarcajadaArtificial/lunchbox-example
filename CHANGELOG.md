@@ -1,10 +1,15 @@
 # Changelog
 
+## v0.0.44
+
+- Updated the lunchbox module import.
+- Added the `<DemoRevealer/>` island.
+
 ## v0.0.43
 
 - Updated the lunchbox module import.
 - Added the `<InterObs/>` island to the documentation page.
-- Added rge `<InstanceDemo/>` island to define the abstract characteristics of
+- Added the `<InstanceDemo/>` island to define the abstract characteristics of
   every demo.
 
 ## v0.0.42

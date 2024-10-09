@@ -22,7 +22,7 @@ export default function () {
           </Text>
         </Module>
         <Module size="full">
-          <Text noMargins type="small" class="text-right">v0.0.43</Text>
+          <Text noMargins type="small" class="text-right">v0.0.44</Text>
         </Module>
       </Layout>
     </Footer>

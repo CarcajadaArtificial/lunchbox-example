@@ -18,6 +18,7 @@ import * as $DemoMarkdown from "./islands/DemoMarkdown.tsx";
 import * as $DemoMenu from "./islands/DemoMenu.tsx";
 import * as $DemoNavigation from "./islands/DemoNavigation.tsx";
 import * as $DemoPattern from "./islands/DemoPattern.tsx";
+import * as $DemoRevealer from "./islands/DemoRevealer.tsx";
 import * as $DemoText from "./islands/DemoText.tsx";
 import * as $InstanceDemo from "./islands/InstanceDemo.tsx";
 import * as $InterObs from "./islands/InterObs.tsx";
@@ -44,6 +45,7 @@ const manifest = {
     "./islands/DemoMenu.tsx": $DemoMenu,
     "./islands/DemoNavigation.tsx": $DemoNavigation,
     "./islands/DemoPattern.tsx": $DemoPattern,
+    "./islands/DemoRevealer.tsx": $DemoRevealer,
     "./islands/DemoText.tsx": $DemoText,
     "./islands/InstanceDemo.tsx": $InstanceDemo,
     "./islands/InterObs.tsx": $InterObs,

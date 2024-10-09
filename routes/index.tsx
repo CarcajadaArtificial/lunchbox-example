@@ -20,6 +20,7 @@ import DemoMenu from "@/islands/DemoMenu.tsx";
 import DemoMarkdown from "@/islands/DemoMarkdown.tsx";
 import DemoHeader from "@/islands/DemoHeader.tsx";
 import DemoFooter from "@/islands/DemoFooter.tsx";
+import DemoRevealer from "@/islands/DemoRevealer.tsx";
 import InterObs from "@/islands/InterObs.tsx";
 import InstanceDemo from "@/islands/InstanceDemo.tsx";
 
@@ -41,6 +42,8 @@ const md = {
   markdown: await mdFetch("../content/home_markdown.md"),
   menu: await mdFetch("../content/home_menu.md"),
   interobs: await mdFetch("../content/home_interobs.md"),
+  revealer: await mdFetch("../content/home_revealer.md"),
+  revelation: await mdFetch("../content/revelation.md"),
   future: await mdFetch("../content/home_future.md"),
 };
 
@@ -140,6 +143,9 @@ export default async function () {
               <DemoMenu />
             </InstanceDemo>
             <InstanceDemo content={md.interobs} />
+            <InstanceDemo content={md.revealer}>
+              <DemoRevealer content={md.revelation} />
+            </InstanceDemo>
             <InterObs>
               <Text id="future-components" type="title" class="mt-8">
                 Future Components?

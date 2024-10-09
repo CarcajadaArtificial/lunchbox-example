@@ -1,0 +1,1 @@
+Presto! The revelation appears.
